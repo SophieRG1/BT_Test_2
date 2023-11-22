@@ -807,7 +807,7 @@ z-index: 1000;
 
 }
 
-.slider_label1 {
+.slider_label {
   position: absolute;
   bottom: 350px;
   right: 25px;
@@ -815,14 +815,7 @@ z-index: 1000;
   font-weight: 700;
   font-size: 1.8em;
 }
-.slider_label2 {
-  position: absolute;
-  bottom: 100px;
-  right: 25px;
-  color:  #fff;
-  font-weight: 700;
-  font-size: 1.8em;
-}
+
 
 
 
