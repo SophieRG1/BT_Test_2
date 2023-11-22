@@ -808,9 +808,7 @@ z-index: 1000;
 }
 
 .slider_label {
-  position: absolute;
-  bottom: 350px;
-  right: 25px;
+  
   color:  #fff;
   font-weight: 700;
   font-size: 1.8em;
