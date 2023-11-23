@@ -1,873 +1,97 @@
-:root {
-  --workspace_color: #334771;
-  --workspace_color1: #245380;
-  --workspace_color2:#5c485a;
-  --flyout_color: #788CB7;
-  --workspace_color3: #498099;
-  --background_color: #c02128;
-  --green: #1ae080;
-  --yellow: rgb(233, 186, 15);
-  --yellow2: rgb(196, 157, 13);
-}
-
-@font-face {
-  font-family: Lato, sans-serif;
-
-}
-
-*
-{
--webkit-user-select: none;
--khtml-user-select: none;
--moz-user-select: none;
--ms-user-select: none;
-user-select: none;
-}
-
-input
-{
--webkit-user-select: auto !important;
--khtml-user-select: auto !important;
--moz-user-select: auto !important;
--ms-user-select: auto !important;
-user-select: auto !important;
--webkit-touch-callout: none;
-}
-
-body, html {
-  margin: 0;
-  padding: 0;
-  height: 100%;
-background-color: var(--background_color);
-font-family: Lato, sans-serif;
-}
-
-button {
-  -webkit-tap-highlight-color: transparent;
-  -webkit-user-select: none; /* disable selection/Copy of UIWebView */
-  -webkit-touch-callout: none;
-}
-
-#blocklyArea {
-  width: 100%;
-  min-height: 100%;
-}
-
-#container {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 100%;
-  height: 100%;
-  min-height: 100%;
-  overflow: hidden;
-  padding: 0;
-  position: relative;
-  z-index: 1;
-}
-
-
-.blocklyTreeRoot {
-  padding: 0;
-}
-
-#console {
-  position: absolute;
-  top: 20px;
-  right: 100px;
-  opacity: 0.95;
-  z-index: 101;
-  transform: translate(0px, 0px);
-  transition: all .3s ease-in-out;
-  width: 290px;
-}
-
-.canvas_open {
-  top: 315px !important;
-}
-
-.console_hide {
-  transform: translate(440px, 0px) !important;
-  transition: all .3s ease-in-out !important;
-}
-
-#control_buttons {
-  margin-top: 1.5em;
-  z-index: 1000;
-  position: relative;
-}
-
-#startstop {
-position: absolute;
-z-index: 100;
-top: 44vh;
-left: 20px;
-
-}
-
-#startstop button {
-  background-color: var(--orange);
-  color: #fff;
-  outline: none;
-  border: none;
-
-  font-weight: 700;
-
-  font-size: 1em;
-  padding: 0;
-  text-align: center;
-}
-
-button#sendStart {
-  height: 70px;
-  width: 70px;
-  border-radius: 35px;
-  position: relative;
-  top: -82px;
-  left: 7px;
-  font-size: 2em;
-  transition: all .2s ease-in-out;
-  cursor: pointer;
-}
-
-button#sendStart:active {
-  transform:scale(1.3, 1.3);
-  transition: all .1s ease-in-out;
-}
-
-#startOutline {
-  position: relative;
-  left: -5px;
-  width: 94px;
-  height: 94px;
-
-
-
-
-background-image: none;
-
-  animation-name: rotate;
-animation-duration: 4s;
-animation-iteration-count: infinite;
-animation-timing-function: linear;
-}
-
-@keyframes rotate {
-    from {transform: rotate(0deg);}
-    to {transform: rotate(360deg);}
-}
-
-
-
-
-
-
-
-#logo {
-  cursor:pointer;
-  position: absolute;
-  bottom: 1em;
-  left: 0px;
-  width:100%;
-  height: 47px;
-  background-image: url(../img/logo_lofi.svg);
-  background-repeat: no-repeat;
-  background-position: center;
-  transform:scale(1, 1);
-  transition: all .1s ease-in-out;
-}
-
-#logo:hover {
-  transform:scale(1.1, 1.1);
-  transition: all .1s ease-in-out;
-}
-
-
-.blocklyToolboxDiv {
-background-color: #f9f9f9;
-opacity: 0.98;
-}
-
-.blocklyMainBackground {
-fill: var(--workspace_color) !important;
-}
-
-#control_buttons {
-
-  box-sizing: border-box;
-}
-
-.blocklyPath {
-    stroke: var(--workspace_color);
-    stroke-width: 1px;
-}
-
-.blocklyPathDark, .blocklyPathLight {
-  display: none;
-}
-
-.blocklyFlyoutBackground {
-    fill: var(--flyout_color);
-    fill-opacity: 0.9;
-
-
-}
-
-.blocklyTreeRow {
-    height: 3.5vh;
-    line-height: 1.1em;
-    font-size: 1.3em;
-    margin-bottom: 0;
-    padding: 0.20em 0.5em;
-    white-space: nowrap;
-}
-
-.blocklyTreeIcon {
-  display: none;
-  width: 10px;
-}
-
-.connection, .inputs_monitor, .console_head {
-  background-color: var(--orange);
-  color: #fff;
-  font-size: 0.7em;
-  padding: 0.5em;
-  border-radius: 7px;
-  margin: 6px 0 ;
-  width: 290px;
-  box-sizing: border-box;
-}
-
-.console_head {
-  background-color: rgb(233, 186, 15);
-  cursor: pointer;
-  border-radius: 7px 7px 0 0;
-  margin: 10px 0 0 0;
-}
-
-.inputs_monitor {
-background-color: rgb(15, 171, 233);
-cursor: pointer;
-text-transform: uppercase;
-}
-
-.inputs_monitor input {
-margin: 0;
-width: 100%;
-}
-
-.inputs_monitor h3 {
-  margin: 0;
-  display: block;
-  width: 70%;
-  float: left;
-}
-
-#inputs_monitor_table {
-  clear: both;
-  display: block;
-  width: 100%;
-  max-height: 240px;
-  transition: max-height .2s ease-in-out;
-  -webkit-transition: max-height .2s ease-in-out;
-  overflow: auto;
-
-}
-
-#inputs_monitor_table table {
-  width: 100%;
-}
-
-.toggled {
-    overflow: hidden;
-    padding: 0 !important;
-    max-height: 0 !important;
-
-}
-
-.show_button {
-  width: 1.5em;
-  height: 1.5em;
-  background-repeat: no-repeat;
-  background-size: contain;
-  background-image: url(https://cardboard.lofirobot.com/control-microbit/css/close_icon.svg);
-  float: right;
-}
-
-#code_area {
-  font-size: 1em;
-  padding: 0.4em;
-  border-radius: 0 0 7px 7px;
-  border: none;
-  margin: 0px;
-  width: 290px;
-  box-sizing: border-box;
-}
-
-.circle {
-    width: 1em;
-    height: 1em;
-    -webkit-border-radius: 25px;
-    -moz-border-radius: 25px;
-    border-radius: 25px;
-    background: var(--green);
-    float: right;
-    position: relative;
-    top: 0.12em;
-  }
-
-  .yellow {
-    background-color: var(--yellow);
-  }
-
-  .orange {
-    background-color: var(--orange);
-  }
-
-  .plugin_monitor {
-  width: 50px;
-  float:right;
-  padding: 0 0.4em;
-  }
-
-
-  #connection_box {
-    font-size: 1.5em;
-        background-color: var(--orange);
-        /* border-radius: 5px; */
-        padding: 30px;
-        box-sizing: border-box;
-        color: #fff;
-        position: absolute;
-        width: 300px;
-        z-index: 5001;
-        right: 0;
-        top: 0;
-        height: 100%;
-
-
-    transform: translate(0px, 0px);
-    transition: all .3s ease-in-out;
-  }
-
-  .hidden {
-
-  transition: all .3s ease-in-out;
-  transform: translate(300px, 0px) !important;
-  }
-
-  #connection_buttons {
-    position: absolute;
-    bottom: 1em;
-    float: right;
-  }
-
-
-
-
-  .robot_icon {
-    position: absolute;
-    top: 35px;
-    right: 35px;
-  }
-
-
-
-
-
-
-.inactive {
-  opacity: 0.3;
-}
-
-#robot_status {
-  position: relative;
-  top: 7px;
-}
-
-
-
-
-#overlay {
-  z-index: 5000;
-  width: 100%;
-  height: 100%;
-  background-color: #000;
-  opacity: 0.65;
-  position: absolute;
-  left:0;
-  top: 0;
-}
-
-#controls {
-  display: block;
-/*
-  position: absolute;
-  top:25px;
-  right:45px;
-*/
-z-index: 5001;
-width: 100%;
-padding: 1.5em;
-box-sizing: border-box;
-transform: translate(0px, 0px);
-transition: all .2s ease-in-out;
-
-}
-
-#controls table tr td button, #controls button {
-width: 11vh; /*11vh*/
-height: 11vh;
-margin: 1vh;
-padding: 0;
-outline: none;
-border: none;
-background-color: transparent;
-transition: all .2s ease-in-out;
--webkit-tap-highlight-color: transparent;
-}
-
-
-#controls table tr td button:active, #controls button:active {
-  transform:scale(1.1, 1.1);
-  transition: all .1s ease-in-out;
-}
-
-#controls table {
-  text-align: center;
-  width: 100%;
-  display: block;
-  margin: 0px auto;
-}
-
-#controls table tbody {
-  display: initial;
-}
-
-.hide {
- transform: translate(0px, 500px) !important;
-  transition: all .2s ease-in-out;
-}
-
-.hide_overlay {
-    transition: all .2s ease-in-out;
-    opacity:0;
-    display:none;
-}
-
-
-#PairButton {
-  position: absolute;
-  top:25px;
-  right:45px;
-  z-index: 5002;
-
-}
-
-#PairButton button {
-  width: 84px;
-  height: 84px;
-  outline: none;
-  border: none;
-  background-color: Transparent;
-  transition: all .1s ease-in-out;
-  padding: 0;
-  margin-bottom: 2vh;
-  cursor: pointer;
-  transform:scale(1, 1);
-  transition: all .1s ease-in-out;
-}
-
-#PairButton button:hover {
-  transform:scale(1.3, 1.3);
-  transition: all .1s ease-in-out;
-}
-
-
-#PairButton button:active {
-  transform:scale(1.0, 1.0);
-  transition: all .1s ease-in-out;
-}
-
-
-
-#robot_outline, #robot_outline2 {
-
-  position: absolute;
-  top: -10px;
-  left: -10px;
-  border: 0px solid #fff;
-  width: 55px;
-  height: 55px;
-  border-radius: 41px;
-  z-index: -1;
-}
-
-#robot_outline2 {
-top: 25px;
-left: 195px;
-}
-
-.robot_outline {
-
-  position: absolute;
-  animation-name: rotate;
-  animation-duration: 50s;
-  animation-iteration-count: infinite;
-  animation-timing-function: linear;
-  top: -8px;
-  left: -7px;
-  width: 73px;
-}
-
-.connected_name {
-  background-color: #fff;
-  color: var(--orange);
-  padding: 0.3em;
-  display: inline-flex;
-  font-size: 0.4em;
-  margin-top: 2.2em;
-  border-radius: 5px;
-  float: right;
-  transition: all .3s ease-in-out;
-}
-
-
-#languageMenu, #userName, #emailName {
-    width:    100%;
-    height: 1.5em;
-    font-size: 1em;
-    color: var(--orange);
-    padding-left: 0.8em;
-    background-color: #fff;
-    border-radius: 5px;
-    -webkit-appearance: none;
-    border:none;
-    box-sizing: border-box;
-    opacity: 0.8;
-}
-
-#languageMenu:hover, #userName:hover, #emailName:hover, #userName:focus, #emailName:focus {
-  opacity: 1;
-}
-
-
-
-
-#user-settings table {
-  width: 100%;
-}
-
-#user-settings table tr {
-  height: 27px;
-}
-
-#user-settings table tr td:first-child {
-  width: 64px;
-}
-
-#user-settings {
-
-  margin: 1em 0;
-  font-size: 0.8em;
-}
-
-#inputs_monitor_header {
-  margin-left: 0.2em;
-}
-
-
-
-#keyboard_panel {
-  position: absolute;
-  z-index: 5001;
-  height: 310px;
-  bottom:0;
-  width: 100%;
-  padding: 35px 10%;
-  box-sizing: border-box;
-  background-color: var(--orange);
-  transform: translate(0px, 0px);
-transition: all .2s ease-in-out;
-}
-
-#keyboard_container {
-  position: relative;
-  width: 100%;
-  height:220px;
-}
-
-#keyboard .key.white #fill, #keyboard .key.black #fill {
-  border-radius: 10px;
-  border: 2px solid var(--orange);
-}
-#keyboard .key.black #fill {
-  background-color: var(--orange);
-}
-
-#canvas_container {
-  transform: translate(0px, 0px);
-  transition: all .3s ease-in-out;
-}
-
-
-#canvas_container button {
-  opacity: 0;
-  transition: all .3s ease-in-out;
-}
-
-#canvas_container:hover button {
-  opacity: 1;
-  transition: all .3s ease-in-out;
-}
-
-.canvas_overlay_hide {
-  display: none;
-}
-
-
-.hide_ui {
-  display: none;
-}
-
-
-#piano_container button:hover {
-  opacity: 0.9;
-}
-
-#octave_up, #octave_down {
-  background-color: #fff;
-  border: none;
-  border-radius: 20px;
-  width: 40px;
-  height: 40px;
-  color: var(--orange);
-  font-weight: bold;
-  font-size: 1.5em;
-
-}
-
-#octave_number {
-  text-align: center;
-  font-size: 2em;
-  font-weight: bold;
-  color: #fff;
-  margin: 0.4em 0;
-}
-
-.piano_key {
-  color: var(--orange);
-  font-size: 1em;
-  font-weight: bold;
-}
-
-#projects {
-  clear:both;
-  margin-top: 20px;
-}
-
-#logOut {
-  color: var(--orange);
-  font-size: 0.6em;
-  font-weight: bold;
-  outline: none;
-  border: none;
-  background-color: #fff;
-  border-radius: 5px;
-  padding: 0.5em 0.8em;
-  transform:scale(1.0, 1.0);
-  transition: all .2s ease-in-out;
-  cursor: pointer;
-  opacity: 0.8;
-}
-
-#logOut:hover {
-
-  transform:scale(1, 1);
-  transition: all .1s ease-in-out;
-  cursor: pointer;
-  opacity: 1;
-}
-
-#projectName {
-width: 60%;
-padding: 0.5em;
-box-sizing: border-box;
-border-radius: 5px;
-border: none;
-color: var(--orange);
-margin: 10px 0;
-font-size: 0.8em;
-font-weight: bold;
-background-color: #fff;
-float: left;
-}
-
-
-#shareProject {
-  float: right;
-  background-color: #fff;
-  color: var(--orange);
-  font-weight: bold;
-  outline: none;
-  padding: 0.65em 0.5em;
-  margin-top: 1.05em;
-  border-radius: 5px;
-  border: none;
-  cursor: pointer;
-}
-
-#shareProject:hover {
-  opacity: 0.9;
-    transition: all .1s ease-in-out;
-}
-
-
-.whiteBackground {
-  fill: #fff !important;
-}
-
-h5#projectNameHeading {
-  margin: 0.1em;
-}
-
-#finalspeech {
-  font-weight: bold;
-}
-
-#interimspeech {
-  color: #999;
-}
-
-
-
-.pulse {
-animation-name: pulse_animation;
-animation-duration: 1000ms;
-transform-origin:50% 50%;
-animation-iteration-count: infinite;
-animation-timing-function: linear;
-
-}
-
-@keyframes pulse_animation {
-    0% { transform: scale(1); }
-    50% { transform: scale(1.2); }
-    100% { transform: scale(1); }
-}
-
-#speech_container {
-  position: absolute;
-  right: 100px;
-  padding: 1em;
-  box-sizing: border-box;
-  width: 290px;
-  background-color: #fff;
-  border-radius: 5px;
-  min-height: 20px;
-  transform: translate(0px, 0);
-    transition: all .3s ease-in-out;
-    opacity: 0.95;
-    max-height: 290px;
-    overflow-y: scroll;
-    z-index: 100;
-        top: 265px;
-}
-
-
-#distance_val, #input1_val, #input2_val, #input3_val, #input4_val {
-  width: 12%;
-  text-align: right;
-}
-
-.inputs_monitor input {
-    margin: 8px 0;
-    width: 100%;
-}
-
-
-.bluetooth_connected  {
-      border: 8px solid #3eeb1c !important; 
-      padding: 0% 0% 0% 0% !important;
-      border-radius: 50%;
-      scale: 1.0;
-}
-
-.tg {
-  width: 40%;
-}
-
-
-#hacedores_logo {
-position: absolute;
-bottom: 10px;
-right: 25px;
-width: 350px;
-z-index: 1000;
-
-}
-
-.slider_label1 {
-  position: absolute;
-  bottom: 350px;
-  right: 25px;
-  color:  #fff;
-  font-weight: 700;
-  font-size: 1.8em;
-}
-.slider_label2 {
-  position: absolute;
-  bottom: 100px;
-  right: 25px;
-  color:  #fff;
-  font-weight: 700;
-  font-size: 1.8em;
-}
-
-
-
-@media screen and (orientation:landscape) {
-
-  #controls {
-
-  }
-
-  .controler:nth-child(3) {
-  width: 45% !important;
-  float: left;
-  margin-top: -20vh !important;
-}
-
-.controler:not(:nth-child(3)) {
-  width: 45%;
-float: right;
-    margin: 7vh;
-}
-
-#controls table tr td button, #controls button {
-    width: 20vh;
-  }
-
-}
-
-/*
-#info {
-  width: 35px;
-  position:absolute;
-  bottom: 30px;
-  left:30px;
-  z-index: 1000;
-}
-*/
-
-
-/*
-<a id="info" href="https://google.com">
-
-  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><style type="text/css">
-
-    </style>
-    <path fill="#fff" d="M50 0C22.4 0 0 22.4 0 50c0 27.6 22.4 50 50 50s50-22.4 50-50C100 22.4 77.6 0 50 0zM53.9 81.1H40.6V67.7h13.3V81.1zM68.7 43.6c-0.8 1.8-1.8 3.4-3 4.7 -1.2 1.4-2.4 2.5-3.8 3.5 -1.4 1-2.7 1.8-3.9 2.6 -0.7 0.5-1.4 0.9-2.1 1.2 -0.7 0.3-1.2 0.8-1.6 1.3 -0.2 0.3-0.3 0.6-0.3 0.9 -0.1 0.3-0.1 0.6-0.2 1 -0.1 0.4-0.1 0.7 0 1.1H40.6v-2.4c0-2 0.3-3.7 1-5.2 0.7-1.5 1.6-2.8 2.6-4 1-1.1 2.2-2.1 3.4-3 1.2-0.8 2.3-1.6 3.4-2.2 1.1-0.7 2-1.3 2.7-1.8 0.7-0.5 1.3-1 1.7-1.4 0.4-0.5 0.7-0.9 0.9-1.3 0.2-0.4 0.3-0.8 0.3-1.3 0-1.4-0.5-2.6-1.5-3.6 -1-1-2.2-1.5-3.6-1.5 -1.6 0-3 0.5-4.1 1.5 -1.1 1-1.7 2.2-1.7 3.6H32.5c0-2.6 0.5-4.9 1.5-7.1 1-2.2 2.4-4.2 4.1-5.8 1.7-1.7 3.7-3 6-4 2.3-1 4.7-1.5 7.3-1.5h0.1c2.6 0 4.9 0.5 7.1 1.5 2.2 1 4.2 2.3 5.8 4 1.7 1.7 3 3.6 4 5.8 1 2.2 1.4 4.6 1.4 7.1C69.9 39.7 69.5 41.8 68.7 43.6z"></path>
-  </svg>
-</a>
-*/
+<!DOCTYPE html>
+<html>
+
+<head>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-ML7M6ZHVQE"></script>
+  
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-ML7M6ZHVQE');
+  </script>
+  
+  <meta charset="utf-8">
+  <meta charset="utf-8" />
+  <meta name="format-detection" content="telephone=no" />
+  <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1" />
+  
+  <title>Robbie Control</title>
+
+  <link rel="manifest" href="manifest.json">
+  <link rel="stylesheet" type="text/css" href="css/style.css">
+
+</head>
+<body>
+    <div id="container">
+    <!-- PairButton -->
+    <div id="Pair"> 
+        <button id="PairButton" onclick="ConnectButtonPressed()"> <!-- Calls JS function to start pairing -->
+            <!--Insert Bluetooth logo .SVG -->
+            <svg viewBox="0 0 100 100" fill="#fff" xmlns="http://www.w3.org/2000/svg">
+                <circle style="fill:#b3b3b3;stroke:none;stroke-width:2.07874;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:5" cx="50" cy="50" r="50"/>
+                <path style="fill:#fff;stroke-width:3.77953" d="M52.392 86.122c-.886-.222-2.207-.992-2.769-1.615-.284-.315-.72-1.001-.969-1.525l-.451-.953-.04-11.905c-.022-6.548-.07-11.906-.105-11.906-.036 0-4.194 2.75-9.24 6.11-8.053 5.361-9.287 6.137-10.094 6.343-1.104.282-1.938.195-2.996-.312-1.945-.932-2.831-3.2-2.058-5.266.577-1.54-.125-1.011 13.21-9.956l7.667-5.143-9.753-6.538c-5.365-3.597-9.964-6.773-10.22-7.06-1.073-1.201-1.453-2.918-.968-4.377.356-1.072 1.57-2.277 2.637-2.617.969-.309 1.93-.313 2.81-.013.39.133 4.621 2.852 9.845 6.326l9.161 6.093.072-11.901c.066-10.879.093-11.955.323-12.528 1.113-2.781 4.593-4.346 7.23-3.251.95.395 16.754 10.867 17.652 11.697 4.257 3.936 4.378 10.935.26 15.115-.722.734-2.33 1.865-7.075 4.978-4.62 3.031-6.098 4.068-5.97 4.19.093.09 2.82 1.902 6.062 4.028 3.241 2.127 6.267 4.212 6.724 4.635 4.256 3.94 4.376 10.937.26 15.116-.74.751-2.637 2.068-9.087 6.31-4.482 2.948-8.453 5.495-8.824 5.658-.776.344-2.45.48-3.294.267zm10.32-15.313c4.668-3.194 5.128-3.592 5.129-4.433 0-.913-.284-1.152-5.58-4.68a1039.858 1039.858 0 0 0-5.318-3.531c-.143-.086-.18 1.618-.18 8.33v8.437l.684-.494c.376-.272 2.745-1.905 5.266-3.63zm4.909-36.411c.494-1.042.16-1.742-1.329-2.783-1.402-.981-8.603-5.92-9.133-6.264l-.396-.256v16.87l5.318-3.55c4.21-2.811 5.365-3.649 5.54-4.017z"/>
+            </svg>
+        </button>
+    </div>
+
+     <div id="L_PAD">
+        
+        <!--Circle-->
+        <div id="circle">
+            <svg width="500.006" height="500.003" viewBox="0 0 132.293 132.292" xml:space="preserve" xmlns="http://www.w3.org/2000/svg">
+                <path d="M126.995 41.533a65.64 65.652 0 0 0-121.69 49.26 65.64 65.652 0 0 0 121.69-49.26Z" style="fill:none;stroke:#fff;stroke-width:.999997;stroke-linecap:round;stroke-dasharray:none" transform="translate(-.003 -.017)"/>
+            </svg>
+        </div>
+
+        <button id="button_up">
+            <svg class="svg-icon" width="100" height="100" viewBox="0 0 26.459 26.459" aria-hidden="true"><path style="stroke-width:1.32292;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:5" d="M5.546.661h15.366a1.864 1.865 0 0 1 1.868 1.87v16.228c0 1.036-.993 1.65-1.868 2.203l-6.526 4.478c-.751.516-1.497.513-2.383 0l-6.457-4.477c-.85-.59-1.868-1.168-1.868-2.204V2.531A1.864 1.865 0 0 1 5.546.66Z"/></svg>
+        </button>
+
+        <button id="button_down">
+            <svg class="svg-icon" width="100" height="100" viewBox="0 0 26.459 26.459" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" transform="rotate(180)"><path style="stroke-width:1.32292;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:5" d="M5.546.661h15.366a1.864 1.865 0 0 1 1.868 1.87v16.228c0 1.036-.993 1.65-1.868 2.203l-6.526 4.478c-.751.516-1.497.513-2.383 0l-6.457-4.477c-.85-.59-1.868-1.168-1.868-2.204V2.531A1.864 1.865 0 0 1 5.546.66Z"/></svg>
+        </button>
+
+        <button id="button_left">
+            <svg class="svg-icon" width="100" height="100" viewBox="0 0 26.459 26.459" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" transform="rotate(-90)"><path style="stroke-width:1.32292;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:5" d="M5.546.661h15.366a1.864 1.865 0 0 1 1.868 1.87v16.228c0 1.036-.993 1.65-1.868 2.203l-6.526 4.478c-.751.516-1.497.513-2.383 0l-6.457-4.477c-.85-.59-1.868-1.168-1.868-2.204V2.531A1.864 1.865 0 0 1 5.546.66Z"/></svg>
+        </button>
+
+        <button id="button_right">
+            <svg class="svg-icon" width="100" height="100" viewBox="0 0 26.459 26.459" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" transform="rotate(90)"><path style="stroke-width:1.32292;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:5" d="M5.546.661h15.366a1.864 1.865 0 0 1 1.868 1.87v16.228c0 1.036-.993 1.65-1.868 2.203l-6.526 4.478c-.751.516-1.497.513-2.383 0l-6.457-4.477c-.85-.59-1.868-1.168-1.868-2.204V2.531A1.864 1.865 0 0 1 5.546.66Z"/></svg>
+        </button>
+
+        <button id="button_L1">
+            <svg width="213.58" height="135.814" viewBox="0 0 56.51 35.934" xml:space="preserve" xmlns="http://www.w3.org/2000/svg">
+                <path d="M23.29 3.67C18.365 7.083 11.602 5.857 8.187.931c-3.415-4.927-2.19-11.689 2.736-15.105a97.698 97.698 0 0 1 39.147-16c5.909-1.013 11.52 2.955 12.534 8.864 1.013 5.909-2.956 11.52-8.865 12.534A75.988 75.988 0 0 0 23.291 3.669z" style="fill:#fff;stroke:none;stroke-width:.944827;stroke-linecap:round" transform="translate(-6.25 30.33)"/>
+                <text xml:space="preserve" style="font-size:10.0767px;line-height:10.2014px;font-family:&quot;Futura Md BT&quot;;-inkscape-font-specification:&quot;Futura Md BT&quot;;text-align:center;text-decoration-color:#000;text-anchor:middle;white-space:pre;fill:#fff;stroke:none;stroke-width:1.32292;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:5" y="-9.707" x="35.165" transform="matrix(1.00001 0 0 .99999 -6.25 30.33)"><tspan style="font-style:normal;font-variant:normal;font-weight:700;font-stretch:normal;font-size:10.0767px;line-height:10.2014px;font-family:&quot;Futura Md BT&quot;;-inkscape-font-specification:&quot;Futura Md BT Bold&quot;;fill:#000;stroke-width:1.32292" x="35.165" y="-9.707">L1</tspan></text>
+              </svg>
+            </button>
+
+       <button id="button_L2">
+            <svg width="207.786" height="148.264" viewBox="0 0 54.977 39.228" xml:space="preserve" xmlns="http://www.w3.org/2000/svg">
+                <path d="M78.982-20.516c1.578-5.783 7.545-9.191 13.328-7.614a97.698 97.698 0 0 1 37.42 19.703c4.577 3.874 5.146 10.726 1.27 15.301-3.876 4.575-10.728 5.141-15.302 1.264A75.987 75.987 0 0 0 86.593-7.187c-5.783-1.58-9.19-7.547-7.611-13.33Z" style="fill:#fff;stroke:none;stroke-width:.944827;stroke-linecap:round" transform="translate(-78.596 28.515)"/>
+                <text xml:space="preserve" style="font-size:10.0767px;line-height:10.2014px;font-family:&quot;Futura Md BT&quot;;-inkscape-font-specification:&quot;Futura Md BT&quot;;text-align:center;text-decoration-color:#000;text-anchor:middle;white-space:pre;fill:#fff;stroke:none;stroke-width:1.32292;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:5" x="107.384" y="-6.911" transform="matrix(1.00001 0 0 .99999 -78.596 28.515)"><tspan style="font-style:normal;font-variant:normal;font-weight:700;font-stretch:normal;font-size:10.0767px;line-height:10.2014px;font-family:&quot;Futura Md BT&quot;;-inkscape-font-specification:&quot;Futura Md BT Bold&quot;;fill:#000;stroke-width:1.32292" x="107.384" y="-6.911">L2</tspan></text>
+            </svg>
+        </button>   
+
+        <button id="button_L3">
+            <svg width="112.162" height="220.898" viewBox="0 0 29.676 58.446" xml:space="preserve" xmlns="http://www.w3.org/2000/svg">
+                <path d="M165.104 67.648c-2.51-5.443-8.956-7.822-14.4-5.315-5.443 2.508-7.825 8.953-5.32 14.397a75.982 75.982 0 0 1 6.97 32.145c-.029 5.995 4.808 10.878 10.803 10.906 5.995.028 10.878-4.809 10.906-10.804a97.69 97.69 0 0 0-8.96-41.33z" style="fill:#fff;stroke:none;stroke-width:.944827;stroke-linecap:round" transform="translate(-144.388 -61.335)"/>
+                <text xml:space="preserve" style="font-size:10.0767px;line-height:10.2014px;font-family:&quot;Futura Md BT&quot;;-inkscape-font-specification:&quot;Futura Md BT&quot;;text-align:center;text-decoration-color:#000;text-anchor:middle;white-space:pre;fill:#fff;stroke:none;stroke-width:1.32292;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:5" x="161.197" y="94.102" transform="matrix(1.00001 0 0 .99999 -144.388 -61.335)"><tspan style="font-style:normal;font-variant:normal;font-weight:700;font-stretch:normal;font-size:10.0767px;line-height:10.2014px;font-family:&quot;Futura Md BT&quot;;-inkscape-font-specification:&quot;Futura Md BT Bold&quot;;fill:#000;stroke-width:1.32292" x="161.197" y="94.102">L3</tspan></text>
+            </svg>
+        </button>  
+
+     </div>
+    
+    </div>
+</body>
+
+<script type="text/javascript" src="js_ble/microbit_uart_ble.js"></script>
+<script type="text/javascript" src="js_ble/functions.js"></script>
+
+<script type="text/javascript">
+
+
+</script>
