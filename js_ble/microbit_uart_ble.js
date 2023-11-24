@@ -6,7 +6,7 @@ let uBitDevice;
 let rxCharacteristic;
 
 
-async function connectButtonPressed() {
+async function bluetooth_connected() {
   try {
     console.log("Requesting Bluetooth Device...");
     uBitDevice = await navigator.bluetooth.requestDevice({
@@ -35,7 +35,7 @@ async function connectButtonPressed() {
     rxCharacteristic = await service.getCharacteristic(
       UART_RX_CHARACTERISTIC_UUID
     );
-    document.getElementById('bluetooth').classList.add("bluetooth_connected");
+    document.getElementById('PairButton').classList.add("bluetooth_connected");
   } catch (error) {
     console.log(error);
   }
