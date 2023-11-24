@@ -226,24 +226,24 @@ z-index: 1000;
 
 #button_up {
   position: absolute;
-  top:75px;
+  top:0px;
   left:100px;
   }
 
 #button_right {
   position: absolute;
-  top:150px;
+  top:75px;
   left:175px;
   }
 
 #button_down {
   position: absolute;
-  top:225px;
+  top:150px;
   left:100px;
   }
 
 #button_left {
   position: absolute;
-  top:150px;
+  top:75px;
   left:25px;
   }
