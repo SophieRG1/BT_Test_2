@@ -2,9 +2,9 @@
 <html>
 
 <head>
+
   <!-- Google tag (gtag.js) -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-ML7M6ZHVQE"></script>
-  
   <script>
     window.dataLayer = window.dataLayer || [];
     function gtag(){dataLayer.push(arguments);}
@@ -12,81 +12,97 @@
 
     gtag('config', 'G-ML7M6ZHVQE');
   </script>
-  
+
   <meta charset="utf-8">
   <meta charset="utf-8" />
   <meta name="format-detection" content="telephone=no" />
   <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1" />
-  
-  <title>Robbie Control</title>
 
-  <link rel="manifest" href="manifest.json">
-  <link rel="stylesheet" type="text/css" href="css/style.css">
+  <title>Robot Control - BBC Micro:Bit</title>
+
+
+
+ <link rel="manifest" href="manifest.json">
+ <link rel="stylesheet" type="text/css" href="css/slider.css">
+ <link rel="stylesheet" type="text/css" href="css/style.css">
+
 
 </head>
-<body>
-    <div id="container">
+
+<body oncontextmenu="return false;">
+ 
+
+  <div id="container">
+
+
     <!-- PairButton -->
-    <div id="Pair"> 
-        <button id="PairButton" onclick="ConnectButtonPressed()"> <!-- Calls JS function to start pairing -->
-            <!--Insert Bluetooth logo .SVG -->
-            <svg viewBox="0 0 100 100" fill="#fff" xmlns="http://www.w3.org/2000/svg">
-                <circle style="fill:#b3b3b3;stroke:none;stroke-width:2.07874;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:5" cx="50" cy="50" r="50"/>
-                <path style="fill:#fff;stroke-width:3.77953" d="M52.392 86.122c-.886-.222-2.207-.992-2.769-1.615-.284-.315-.72-1.001-.969-1.525l-.451-.953-.04-11.905c-.022-6.548-.07-11.906-.105-11.906-.036 0-4.194 2.75-9.24 6.11-8.053 5.361-9.287 6.137-10.094 6.343-1.104.282-1.938.195-2.996-.312-1.945-.932-2.831-3.2-2.058-5.266.577-1.54-.125-1.011 13.21-9.956l7.667-5.143-9.753-6.538c-5.365-3.597-9.964-6.773-10.22-7.06-1.073-1.201-1.453-2.918-.968-4.377.356-1.072 1.57-2.277 2.637-2.617.969-.309 1.93-.313 2.81-.013.39.133 4.621 2.852 9.845 6.326l9.161 6.093.072-11.901c.066-10.879.093-11.955.323-12.528 1.113-2.781 4.593-4.346 7.23-3.251.95.395 16.754 10.867 17.652 11.697 4.257 3.936 4.378 10.935.26 15.115-.722.734-2.33 1.865-7.075 4.978-4.62 3.031-6.098 4.068-5.97 4.19.093.09 2.82 1.902 6.062 4.028 3.241 2.127 6.267 4.212 6.724 4.635 4.256 3.94 4.376 10.937.26 15.116-.74.751-2.637 2.068-9.087 6.31-4.482 2.948-8.453 5.495-8.824 5.658-.776.344-2.45.48-3.294.267zm10.32-15.313c4.668-3.194 5.128-3.592 5.129-4.433 0-.913-.284-1.152-5.58-4.68a1039.858 1039.858 0 0 0-5.318-3.531c-.143-.086-.18 1.618-.18 8.33v8.437l.684-.494c.376-.272 2.745-1.905 5.266-3.63zm4.909-36.411c.494-1.042.16-1.742-1.329-2.783-1.402-.981-8.603-5.92-9.133-6.264l-.396-.256v16.87l5.318-3.55c4.21-2.811 5.365-3.649 5.54-4.017z"/>
-            </svg>
-        </button>
+    <div id="PairButton"> 
+      <button id="bluetooth" onclick="bluetooth_connected()">
+        <!-- Bluetooth logo SVG -->
+        <svg fill="#fff" width="75" height="75">
+            <path style="fill:#b3b3b3;stroke:none;stroke-width:2.07874;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:5" d="M75 37.5A37.5 37.5 0 0 1 37.5 75 37.5 37.5 0 0 1 0 37.5a37.5 37.5 0 0 1 75 0z"/>
+            <path style="fill:#fff;stroke-width:3.77953" d="M39.294 64.591c-.664-.167-1.655-.744-2.077-1.211-.213-.236-.54-.751-.727-1.144l-.338-.715-.03-8.929c-.017-4.911-.053-8.93-.079-8.93-.027 0-3.146 2.063-6.93 4.583-6.04 4.021-6.965 4.603-7.57 4.757-.828.211-1.454.146-2.247-.234-1.459-.699-2.123-2.4-1.543-3.95.433-1.155-.094-.758 9.908-7.467l5.75-3.857-7.315-4.904c-4.024-2.698-7.473-5.08-7.665-5.295-.805-.901-1.09-2.189-.726-3.283.267-.804 1.177-1.708 1.978-1.963.727-.232 1.448-.235 2.107-.01.292.1 3.466 2.139 7.384 4.744l6.871 4.57.054-8.926c.05-8.159.07-8.966.242-9.396.835-2.086 3.445-3.26 5.423-2.438.712.296 12.566 8.15 13.239 8.773 3.193 2.952 3.284 8.201.195 11.336-.541.55-1.748 1.399-5.306 3.733-3.465 2.273-4.574 3.051-4.478 3.143.07.068 2.115 1.426 4.546 3.021s4.7 3.159 5.043 3.476c3.192 2.955 3.282 8.203.195 11.337-.555.563-1.978 1.551-6.815 4.732-3.362 2.211-6.34 4.121-6.618 4.244-.582.258-1.838.36-2.47.2zm7.74-11.485c3.501-2.396 3.846-2.694 3.847-3.325 0-.685-.213-.864-4.185-3.51a779.893 779.893 0 0 0-3.988-2.648c-.107-.065-.135 1.214-.135 6.248v6.328l.513-.37c.282-.204 2.059-1.429 3.95-2.723zm3.682-27.308c.37-.782.12-1.306-.997-2.087a920.11 920.11 0 0 0-6.85-4.698l-.297-.192v12.652l3.988-2.662c3.157-2.108 4.024-2.737 4.155-3.013z"/>
+        </svg>
+        
+       </button>
+
+
     </div>
 
-     <div id="L_PAD">
-        
-        <!--Circle-->
-        <div id="circle">
-            <svg width="500.006" height="500.003" viewBox="0 0 132.293 132.292" xml:space="preserve" xmlns="http://www.w3.org/2000/svg">
-                <path d="M126.995 41.533a65.64 65.652 0 0 0-121.69 49.26 65.64 65.652 0 0 0 121.69-49.26Z" style="fill:none;stroke:#fff;stroke-width:.999997;stroke-linecap:round;stroke-dasharray:none" transform="translate(-.003 -.017)"/>
-            </svg>
-        </div>
+    <div id="controls" >
 
-        <button id="button_up">
-            <svg class="svg-icon" width="100" height="100" viewBox="0 0 26.459 26.459" aria-hidden="true"><path style="stroke-width:1.32292;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:5" d="M5.546.661h15.366a1.864 1.865 0 0 1 1.868 1.87v16.228c0 1.036-.993 1.65-1.868 2.203l-6.526 4.478c-.751.516-1.497.513-2.383 0l-6.457-4.477c-.85-.59-1.868-1.168-1.868-2.204V2.531A1.864 1.865 0 0 1 5.546.66Z"/></svg>
-        </button>
+      <button id="button_up" onmousedown='buttonPressed("up")' onmouseup='buttonPressed("stop");' ontouchstart='buttonPressed("up")' ontouchend='buttonPressed("stop");'>
+        <svg class="svg-icon" width="75" height="75" viewBox="0 0 19.844 19.844" aria-hidden="true">
+          <path style="fill:#fff" d="M4.16.496h11.524a1.398 1.399 0 0 1 1.401 1.403V14.07c0 .777-.745 1.237-1.401 1.652L10.79 19.08c-.563.387-1.123.385-1.787 0L4.16 15.722c-.637-.443-1.401-.876-1.401-1.653V1.898A1.398 1.399 0 0 1 4.16.495Z"/>
+        </svg>
+      </button> 
 
-        <button id="button_down">
-            <svg class="svg-icon" width="100" height="100" viewBox="0 0 26.459 26.459" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" transform="rotate(180)"><path style="stroke-width:1.32292;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:5" d="M5.546.661h15.366a1.864 1.865 0 0 1 1.868 1.87v16.228c0 1.036-.993 1.65-1.868 2.203l-6.526 4.478c-.751.516-1.497.513-2.383 0l-6.457-4.477c-.85-.59-1.868-1.168-1.868-2.204V2.531A1.864 1.865 0 0 1 5.546.66Z"/></svg>
-        </button>
+      <button id="button_right" onmousedown='buttonPressed("right")' onmouseup='buttonPressed("stop");' ontouchstart='buttonPressed("right")' ontouchend='buttonPressed("stop");'>
+        <svg class="svg-icon" width="75" height="75" viewBox="0 0 19.844 19.844" aria-hidden="true" transform="rotate(90)">
+          <path style="fill:#fff" d="M4.16.496h11.524a1.398 1.399 0 0 1 1.401 1.403V14.07c0 .777-.745 1.237-1.401 1.652L10.79 19.08c-.563.387-1.123.385-1.787 0L4.16 15.722c-.637-.443-1.401-.876-1.401-1.653V1.898A1.398 1.399 0 0 1 4.16.495Z"/>
+        </svg>
+      </button>
 
-        <button id="button_left">
-            <svg class="svg-icon" width="100" height="100" viewBox="0 0 26.459 26.459" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" transform="rotate(-90)"><path style="stroke-width:1.32292;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:5" d="M5.546.661h15.366a1.864 1.865 0 0 1 1.868 1.87v16.228c0 1.036-.993 1.65-1.868 2.203l-6.526 4.478c-.751.516-1.497.513-2.383 0l-6.457-4.477c-.85-.59-1.868-1.168-1.868-2.204V2.531A1.864 1.865 0 0 1 5.546.66Z"/></svg>
-        </button>
+      <button id="button_down" onmousedown='buttonPressed("down")' onmouseup='buttonPressed("stop");' ontouchstart='buttonPressed("down")' ontouchend='buttonPressed("stop");'>
+        <svg class="svg-icon" width="75" height="75" viewBox="0 0 19.844 19.844" aria-hidden="true" transform="rotate(180)">
+          <path style="fill:#fff" d="M4.16.496h11.524a1.398 1.399 0 0 1 1.401 1.403V14.07c0 .777-.745 1.237-1.401 1.652L10.79 19.08c-.563.387-1.123.385-1.787 0L4.16 15.722c-.637-.443-1.401-.876-1.401-1.653V1.898A1.398 1.399 0 0 1 4.16.495Z"/>
+        </svg>
+      </button> 
 
-        <button id="button_right">
-            <svg class="svg-icon" width="100" height="100" viewBox="0 0 26.459 26.459" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" transform="rotate(90)"><path style="stroke-width:1.32292;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:5" d="M5.546.661h15.366a1.864 1.865 0 0 1 1.868 1.87v16.228c0 1.036-.993 1.65-1.868 2.203l-6.526 4.478c-.751.516-1.497.513-2.383 0l-6.457-4.477c-.85-.59-1.868-1.168-1.868-2.204V2.531A1.864 1.865 0 0 1 5.546.66Z"/></svg>
-        </button>
+      <button id="button_left" onmousedown='buttonPressed("left")' onmouseup='buttonPressed("stop");' ontouchstart='buttonPressed("left")' ontouchend='buttonPressed("stop");'>
+        <svg class="svg-icon" width="75" height="75" viewBox="0 0 19.844 19.844" aria-hidden="true" transform="rotate(270)">
+          <path style="fill:#fff" d="M4.16.496h11.524a1.398 1.399 0 0 1 1.401 1.403V14.07c0 .777-.745 1.237-1.401 1.652L10.79 19.08c-.563.387-1.123.385-1.787 0L4.16 15.722c-.637-.443-1.401-.876-1.401-1.653V1.898A1.398 1.399 0 0 1 4.16.495Z"/>
+        </svg>
+      </button>     
 
-        <button id="button_L1">
-            <svg width="213.58" height="135.814" viewBox="0 0 56.51 35.934" xml:space="preserve" xmlns="http://www.w3.org/2000/svg">
-                <path d="M23.29 3.67C18.365 7.083 11.602 5.857 8.187.931c-3.415-4.927-2.19-11.689 2.736-15.105a97.698 97.698 0 0 1 39.147-16c5.909-1.013 11.52 2.955 12.534 8.864 1.013 5.909-2.956 11.52-8.865 12.534A75.988 75.988 0 0 0 23.291 3.669z" style="fill:#fff;stroke:none;stroke-width:.944827;stroke-linecap:round" transform="translate(-6.25 30.33)"/>
-                <text xml:space="preserve" style="font-size:10.0767px;line-height:10.2014px;font-family:&quot;Futura Md BT&quot;;-inkscape-font-specification:&quot;Futura Md BT&quot;;text-align:center;text-decoration-color:#000;text-anchor:middle;white-space:pre;fill:#fff;stroke:none;stroke-width:1.32292;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:5" y="-9.707" x="35.165" transform="matrix(1.00001 0 0 .99999 -6.25 30.33)"><tspan style="font-style:normal;font-variant:normal;font-weight:700;font-stretch:normal;font-size:10.0767px;line-height:10.2014px;font-family:&quot;Futura Md BT&quot;;-inkscape-font-specification:&quot;Futura Md BT Bold&quot;;fill:#000;stroke-width:1.32292" x="35.165" y="-9.707">L1</tspan></text>
-              </svg>
-            </button>
-
-       <button id="button_L2">
-            <svg width="207.786" height="148.264" viewBox="0 0 54.977 39.228" xml:space="preserve" xmlns="http://www.w3.org/2000/svg">
-                <path d="M78.982-20.516c1.578-5.783 7.545-9.191 13.328-7.614a97.698 97.698 0 0 1 37.42 19.703c4.577 3.874 5.146 10.726 1.27 15.301-3.876 4.575-10.728 5.141-15.302 1.264A75.987 75.987 0 0 0 86.593-7.187c-5.783-1.58-9.19-7.547-7.611-13.33Z" style="fill:#fff;stroke:none;stroke-width:.944827;stroke-linecap:round" transform="translate(-78.596 28.515)"/>
-                <text xml:space="preserve" style="font-size:10.0767px;line-height:10.2014px;font-family:&quot;Futura Md BT&quot;;-inkscape-font-specification:&quot;Futura Md BT&quot;;text-align:center;text-decoration-color:#000;text-anchor:middle;white-space:pre;fill:#fff;stroke:none;stroke-width:1.32292;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:5" x="107.384" y="-6.911" transform="matrix(1.00001 0 0 .99999 -78.596 28.515)"><tspan style="font-style:normal;font-variant:normal;font-weight:700;font-stretch:normal;font-size:10.0767px;line-height:10.2014px;font-family:&quot;Futura Md BT&quot;;-inkscape-font-specification:&quot;Futura Md BT Bold&quot;;fill:#000;stroke-width:1.32292" x="107.384" y="-6.911">L2</tspan></text>
-            </svg>
-        </button>   
-
-        <button id="button_L3">
-            <svg width="112.162" height="220.898" viewBox="0 0 29.676 58.446" xml:space="preserve" xmlns="http://www.w3.org/2000/svg">
-                <path d="M165.104 67.648c-2.51-5.443-8.956-7.822-14.4-5.315-5.443 2.508-7.825 8.953-5.32 14.397a75.982 75.982 0 0 1 6.97 32.145c-.029 5.995 4.808 10.878 10.803 10.906 5.995.028 10.878-4.809 10.906-10.804a97.69 97.69 0 0 0-8.96-41.33z" style="fill:#fff;stroke:none;stroke-width:.944827;stroke-linecap:round" transform="translate(-144.388 -61.335)"/>
-                <text xml:space="preserve" style="font-size:10.0767px;line-height:10.2014px;font-family:&quot;Futura Md BT&quot;;-inkscape-font-specification:&quot;Futura Md BT&quot;;text-align:center;text-decoration-color:#000;text-anchor:middle;white-space:pre;fill:#fff;stroke:none;stroke-width:1.32292;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:5" x="161.197" y="94.102" transform="matrix(1.00001 0 0 .99999 -144.388 -61.335)"><tspan style="font-style:normal;font-variant:normal;font-weight:700;font-stretch:normal;font-size:10.0767px;line-height:10.2014px;font-family:&quot;Futura Md BT&quot;;-inkscape-font-specification:&quot;Futura Md BT Bold&quot;;fill:#000;stroke-width:1.32292" x="161.197" y="94.102">L3</tspan></text>
-            </svg>
-        </button>  
-
-     </div>
+    <!-- SLIDER1 -->
+    <div class="slider_label1 layout">SLIDER1</div>
+    <input id="slider1" class="layout" type="range" name="points" min="0" max="180" value="0" step="5" oninput='sendUART("z"+this.value);'>
+    <!-- SLIDER2 -->
+    <div class="slider_label2 layout ">SLIDER2</div>
+    <input id="slider2" class="layout" type="range" name="points" min="0" max="180" value="0" step="5" oninput='sendUART("x"+this.value);'>
+    <!-- SLIDER3 -->
+    <div class="slider_label3 layout">SLIDER3</div>
+    <input id="slider3" class="layout" type="range" name="points" min="0" max="180" value="0" step="5" oninput='sendUART("c"+this.value);'>
+    <!-- SLIDER4 -->
+    <div class="slider_label4 layout ">SLIDER4</div>
+    <input id="slider4" class="layout" type="range" name="points" min="0" max="180" value="0" step="5" oninput='sendUART("v"+this.value);'>
+      
     
     </div>
+
+  </div>
+
+
+<!-- LOGO de hacedores-->
+<a id="hacedores_logo" href="https://www.hacedores.com/">
+  
+</a>
+
+
+
 </body>
+
 
 <script type="text/javascript" src="js_ble/microbit_uart_ble.js"></script>
 <script type="text/javascript" src="js_ble/functions.js"></script>
