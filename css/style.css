@@ -1,5 +1,18 @@
-:root{
-  --background_color: #c02128;/*hacedores colors*/
+:root {
+  --workspace_color: #334771;
+  --workspace_color1: #245380;
+  --workspace_color2:#5c485a;
+  --flyout_color: #788CB7;
+  --workspace_color3: #498099;
+  --background_color: #c02128;
+  --green: #1ae080;
+  --yellow: rgb(233, 186, 15);
+  --yellow2: rgb(196, 157, 13);
+}
+
+@font-face {
+  font-family: Verdana, sans-serif;
+
 }
 
 *
@@ -10,6 +23,7 @@
 -ms-user-select: none;
 user-select: none;
 }
+
 input
 {
 -webkit-user-select: auto !important;
@@ -19,28 +33,23 @@ input
 user-select: auto !important;
 -webkit-touch-callout: none;
 }
-/*body style*/
+
 body, html {
-  margin: 0;
-  padding: 0;
-  height: 100%;
-  background-color: var(--background_color);
-/*
-  font-family: sans-serif;
-  line-height: 1.5;
-  text-align: center;
-  box-sizing: border-box;
-  margin: 2em auto;
-  max-width: 35em;
-  color: #2b2b2b;
-  */
+margin: 0;
+padding: 0;
+height: 100%;
+background-color: var(--background_color);
+font-family: Lato, sans-serif;
+}
+
+button {
+  -webkit-tap-highlight-color: transparent;
+  -webkit-user-select: none; 
+  -webkit-touch-callout: none;
+}
 
 
-}
-#blocklyArea {
-  width: 100%;
-  min-height: 100%;
-}
+
 #container {
   display: flex;
   justify-content: center;
@@ -55,15 +64,66 @@ body, html {
 }
 
 
-/*position of the section of the button*/
-#Pair {
-  position: absolute;
+
+#controls {
+  display: block;
+  /* no usar
+  position: relative;
   top:25px;
   right:45px;
-  z-index: 5002;
+z-index: 5001;
+*/
+background: transparent;
+border: solid 10px;
+color: rebeccapurple;
+width: 100%;
+height: 90%;
+padding: 1.5em;
+box-sizing: border-box;
+transform: translate(0px, 0px);
+transition: all .2s ease-in-out;
+
 }
 
-#Pair button {
+#controls button {
+width:  75px;
+height: 75px;
+margin: 1vh;
+padding: 0;
+outline: none;
+border: none;
+background-color: transparent;
+transition: all .2s ease-in-out;
+-webkit-tap-highlight-color: transparent;
+}
+
+
+#controls table tr td button:active, #controls button:active {
+  transform:scale(1.1, 1.1);
+  transition: all .1s ease-in-out;
+}
+
+#controls table {
+  text-align: center;
+  width: 100%;
+  display: block;
+  margin: 0px auto;
+}
+
+#controls table tbody {
+  display: initial;
+}
+
+
+#PairButton {
+  position: absolute;
+  top:15px;
+  right:15px;
+  z-index: 5002;
+
+}
+
+#PairButton button {
   /*size of button*/
   width: 75px; 
   height: 75px;
@@ -73,7 +133,7 @@ body, html {
   background-color: Transparent;
   transition: all .1s ease-in-out;
   padding: 0;
-  margin-bottom: 0;
+  margin-bottom: 2vh;
   cursor: pointer;
   transform:scale(1, 1);
 }
@@ -83,7 +143,13 @@ body, html {
   transition: all .1s ease-in-out;
 }
 
-/*attribute added to the button when connected through js script*/
+
+#PairButton button:active {
+  transform:scale(1.0, 1.0);
+  transition: all .1s ease-in-out;
+}
+
+/*
 .bluetooth_connected  {
   border: 6px solid #3eeb1c !important; 
   padding: 0% 0% 0% 0% !important;
@@ -91,96 +157,93 @@ body, html {
   scale: 1.0;
   transition: all 1s ease-in-out;
 }
-#L_PAD {
-  background: transparent;
-  border: solid 10px;
-  color: rebeccapurple;
-  padding: 20px;
-  border-radius: 20px;
-  width: 11vh; /*11vh*/
-  height: 11vh;
-  margin: 1vh;
-  display: block;
-  position: absolute;
-  top:100px;
-  left:25px;
-  }
+*/
+.connected_name {
+  background-color: #fff;
+  color: var(--orange);
+  padding: 0.3em;
+  display: inline-flex;
+  font-size: 0.4em;
+  margin-top: 2.2em;
+  border-radius: 5px;
+  float: right;
+  transition: all .3s ease-in-out;
+}
+
+
+.tg {
+  width: 40%;
+}
+
+
+#hacedores_logo {
+position: absolute;
+bottom: 10px;
+right: 25px;
+width: 350px;
+z-index: 1000;
+}
+
+.slider_label1 {
+  position: relative;
+  top: 0px;
+  left: 50%;
+  color:  #fff;
+  font-weight: 650;
+  font-size: 1.5em;
+}
+.slider_label2 {
+  position: relative;
+  top: 0px;
+  left: 50%;
+  color:  #fff;
+  font-weight: 650;
+  font-size: 1.5em;
+}
+.slider_label3 {
+  position: relative;
+  top: 0px;
+  left: 50%;
+  color:  #fff;
+  font-weight: 650;
+  font-size: 1.5em;
+}
+.slider_label4 {
+  position: relative;
+  top: 0px;
+  left: 50%;
+  color:  #fff;
+  font-weight: 650;
+  font-size: 1.5em;
+}
+
 
 #circle {
-  position: absolute;
-  top: 90px;
-  left:10px;
+  position: relative;
+  bottom: 0px;
+  left:0px;
  }
 
-/*position of the buttons*/
 #button_up {
   position: absolute;
-  top:175px;
-  left:200px;
-  }
-  
-  #button_down {
-  position: absolute;
-  top:375px;
-  left:200px;
-  }
-  
-  #button_left {
-  position: absolute;
-  top:275px;
+  top:75px;
   left:100px;
   }
-  
-  #button_right {
-    position: absolute;
-    top:275px;
-    left:300px;
+
+#button_right {
+  position: absolute;
+  top:150px;
+  left:175px;
   }
-  #button_L1 {
-    position: absolute;
-    top: 0px;
-    left:40px;
+
+#button_down {
+  position: absolute;
+  top:225px;
+  left:100px;
   }
-  #button_L2 {
-    position: absolute;
-    top:0px;
-    left:275px;
-    } 
 
-  #button_L3 {
-    position: absolute;
-    top:150px;
-    left:470px;
-    }  
-
-#L_PAD button {
-border: none; /*.1875em solid*/
-padding: 1em;
-color: transparent;
-background: transparent;
-border-radius: .125em;
-transition: background .3s;
-
-
-&:hover { /*,&:focus to remain active*/
-    /*color: red;*/
-    /*background: rebeccapurple;
-    border-color: rebeccapurple;*/
-}
-&:active {
-    color: white;
-    transform:scale(1.2, 1.2);
-    transition: all .1s ease-in-out;
-    /*top: .08em; this to move up*/ 
-}
-
-}
-
-.svg-icon {
-/* Let the icon take a color of its parent. */
-fill: currentcolor;
-stroke:white;
-stroke-width:0.1em;
-transition: fill .9s;
-}
-
+#button_left {
+  position: absolute;
+  top:150px;
+  left:25px;
+  }
