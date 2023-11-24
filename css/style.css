@@ -1,249 +1,76 @@
-:root {
-  --workspace_color: #334771;
-  --workspace_color1: #245380;
-  --workspace_color2:#5c485a;
-  --flyout_color: #788CB7;
-  --workspace_color3: #498099;
-  --background_color: #c02128;
-  --green: #1ae080;
-  --yellow: rgb(233, 186, 15);
-  --yellow2: rgb(196, 157, 13);
+input[type=range] {
+  -webkit-appearance: none;
+  margin: 4vh 50%;
+  background-color: rgba(0,0,0,0);
+  width: 50%;
 }
-
-@font-face {
-  font-family: Verdana, sans-serif;
-
-}
-
-*
-{
--webkit-user-select: none;
--khtml-user-select: none;
--moz-user-select: none;
--ms-user-select: none;
-user-select: none;
-}
-
-input
-{
--webkit-user-select: auto !important;
--khtml-user-select: auto !important;
--moz-user-select: auto !important;
--ms-user-select: auto !important;
-user-select: auto !important;
--webkit-touch-callout: none;
-}
-
-body, html {
-margin: 0;
-padding: 0;
-height: 100%;
-background-color: var(--background_color);
-font-family: Lato, sans-serif;
-}
-
-button {
-  -webkit-tap-highlight-color: transparent;
-  -webkit-user-select: none; 
-  -webkit-touch-callout: none;
-}
-
-
-
-#container {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 100%;
-  height: 100%;
-  min-height: 100%;
-  overflow: hidden;
-  padding: 0;
-  position: relative;
-  z-index: 1;
-}
-
-
-
-#controls {
-  display: block;
-  /* no usar
-  position: relative;
-  top:25px;
-  right:45px;
-z-index: 5001;
-*/
-background: transparent;
-border: solid 10px;
-color: rebeccapurple;
-width: 100%;
-height: 90%;
-padding: 1.5em;
-box-sizing: border-box;
-transform: translate(0px, 0px);
-transition: all .2s ease-in-out;
-
-}
-
-#controls button {
-width:  75px;
-height: 75px;
-margin: 1vh;
-padding: 0;
-outline: none;
-border: none;
-background-color: transparent;
-transition: all .2s ease-in-out;
--webkit-tap-highlight-color: transparent;
-}
-
-
-#controls table tr td button:active, #controls button:active {
-  transform:scale(1.1, 1.1);
-  transition: all .1s ease-in-out;
-}
-
-#controls table {
-  text-align: center;
-  width: 100%;
-  display: block;
-  margin: 0px auto;
-}
-
-#controls table tbody {
-  display: initial;
-}
-
-
-#PairButton {
-  position: absolute;
-  top:15px;
-  right:15px;
-  z-index: 5002;
-
-}
-
-#PairButton button {
-  /*size of button*/
-  width: 75px; 
-  height: 75px;
-
+input[type=range]:focus {
   outline: none;
-  border: none;
-  background-color: Transparent;
-  transition: all .1s ease-in-out;
-  padding: 0;
-  margin-bottom: 2vh;
+}
+input[type=range]::-webkit-slider-runnable-track {
+  height: 5px;
   cursor: pointer;
-  transform:scale(1, 1);
+  animate: 0.2s;
+  background: rgba(255,255,255,0.6);
+  border-radius: 2.5px;
+}
+input[type=range]::-webkit-slider-thumb {
+  height: 30px;
+  width: 30px;
+  border-radius: 15px;
+  background: #ffffff;
+  cursor: pointer;
+  -webkit-appearance: none;
+  margin-top: -15px;
 }
 
-#Pair button:hover {
-  transform:scale(1.3, 1.3);
-  transition: all .1s ease-in-out;
+input[type=range]:focus::-webkit-slider-runnable-track {
+    background: rgba(255,255,255,0.3);
 }
 
-
-#PairButton button:active {
-  transform:scale(1.0, 1.0);
-  transition: all .1s ease-in-out;
+input[type=range]::-moz-range-track {
+  width: 100%;
+  height: 5px;
+  cursor: pointer;
+  animate: 0.2s;
+    background: rgba(255,255,255,0.3);
+  border-radius: 1.3px;
 }
-
-/*
-.bluetooth_connected  {
-  border: 6px solid #3eeb1c !important; 
-  padding: 0% 0% 0% 0% !important;
-  border-radius: 50%;
-  scale: 1.0;
-  transition: all 1s ease-in-out;
+input[type=range]::-moz-range-thumb {
+  height: 36px;
+  width: 16px;
+  border-radius: 3px;
+  background: #ffffff;
+  cursor: pointer;
 }
-*/
-.connected_name {
-  background-color: #fff;
-  color: var(--orange);
-  padding: 0.3em;
-  display: inline-flex;
-  font-size: 0.4em;
-  margin-top: 2.2em;
-  border-radius: 5px;
-  float: right;
-  transition: all .3s ease-in-out;
+input[type=range]::-ms-track {
+  width: 100%;
+  height: 8.4px;
+  cursor: pointer;
+  animate: 0.2s;
+  background: transparent;
+  border-color: transparent;
+  color: transparent;
 }
-
-
-.tg {
-  width: 40%;
+input[type=range]::-ms-fill-lower {
+    background: rgba(255,255,255,0.3);
+  border-radius: 2.6px;
 }
-
-
-#hacedores_logo {
-position: absolute;
-bottom: 10px;
-right: 25px;
-width: 350px;
-z-index: 1000;
+input[type=range]::-ms-fill-upper {
+    background: rgba(255,255,255,0.3);
+  border: 0.2px solid #010101;
+  border-radius: 2.6px;
 }
-
-.slider_label1 {
-  position: relative;
-  top: 0px;
-  left: 50%;
-  color:  #fff;
-  font-weight: 650;
-  font-size: 1.5em;
+input[type=range]::-ms-thumb {
+  height: 36px;
+  width: 16px;
+  border-radius: 3px;
+  background: #ffffff;
+  cursor: pointer;
 }
-.slider_label2 {
-  position: relative;
-  top: 0px;
-  left: 50%;
-  color:  #fff;
-  font-weight: 650;
-  font-size: 1.5em;
+input[type=range]:focus::-ms-fill-lower {
+    background: rgba(255,255,255,0.3);
 }
-.slider_label3 {
-  position: relative;
-  top: 0px;
-  left: 50%;
-  color:  #fff;
-  font-weight: 650;
-  font-size: 1.5em;
+input[type=range]:focus::-ms-fill-upper {
+    background: rgba(255,255,255,0.3);
 }
-.slider_label4 {
-  position: relative;
-  top: 0px;
-  left: 50%;
-  color:  #fff;
-  font-weight: 650;
-  font-size: 1.5em;
-}
-
-
-#circle {
-  position: relative;
-  bottom: 0px;
-  left:0px;
- }
-
-#button_up {
-  position: absolute;
-  top:75px;
-  left:100px;
-  }
-
-#button_right {
-  position: absolute;
-  top:150px;
-  left:175px;
-  }
-
-#button_down {
-  position: absolute;
-  top:225px;
-  left:100px;
-  }
-
-#button_left {
-  position: absolute;
-  top:150px;
-  left:25px;
-  }
