@@ -45,49 +45,110 @@
         </svg>
         
        </button>
-
-
     </div>
 
     <div id="controls" >
 
-      <button id="button_up" onmousedown='buttonPressed("up")' onmouseup='buttonPressed("stop");' ontouchstart='buttonPressed("up")' ontouchend='buttonPressed("stop");'>
-        <svg class="svg-icon" width="75" height="75" viewBox="0 0 19.844 19.844" aria-hidden="true">
-          <path style="fill:#fff" d="M4.16.496h11.524a1.398 1.399 0 0 1 1.401 1.403V14.07c0 .777-.745 1.237-1.401 1.652L10.79 19.08c-.563.387-1.123.385-1.787 0L4.16 15.722c-.637-.443-1.401-.876-1.401-1.653V1.898A1.398 1.399 0 0 1 4.16.495Z"/>
-        </svg>
-      </button> 
+      <table id="Pad"> <!--Square numeric pad alike-->
 
-      <button id="button_right" onmousedown='buttonPressed("right")' onmouseup='buttonPressed("stop");' ontouchstart='buttonPressed("right")' ontouchend='buttonPressed("stop");'>
-        <svg class="svg-icon" width="75" height="75" viewBox="0 0 19.844 19.844" aria-hidden="true" transform="rotate(90)">
-          <path style="fill:#fff" d="M4.16.496h11.524a1.398 1.399 0 0 1 1.401 1.403V14.07c0 .777-.745 1.237-1.401 1.652L10.79 19.08c-.563.387-1.123.385-1.787 0L4.16 15.722c-.637-.443-1.401-.876-1.401-1.653V1.898A1.398 1.399 0 0 1 4.16.495Z"/>
-        </svg>
-      </button>
+        <tr>
+          <td></td> <!--Cell 1-->
 
-      <button id="button_down" onmousedown='buttonPressed("down")' onmouseup='buttonPressed("stop");' ontouchstart='buttonPressed("down")' ontouchend='buttonPressed("stop");'>
-        <svg class="svg-icon" width="75" height="75" viewBox="0 0 19.844 19.844" aria-hidden="true" transform="rotate(180)">
-          <path style="fill:#fff" d="M4.16.496h11.524a1.398 1.399 0 0 1 1.401 1.403V14.07c0 .777-.745 1.237-1.401 1.652L10.79 19.08c-.563.387-1.123.385-1.787 0L4.16 15.722c-.637-.443-1.401-.876-1.401-1.653V1.898A1.398 1.399 0 0 1 4.16.495Z"/>
-        </svg>
-      </button> 
+          <td> <!--Cell 2-->
+            <button id="button_up" onmousedown='buttonPressed("up")' onmouseup='buttonPressed("stop");' ontouchstart='buttonPressed("up")' ontouchend='buttonPressed("stop");'>
+              <svg class="svg-icon" width="75" height="75" viewBox="0 0 19.844 19.844" aria-hidden="true">
+                <path style="fill:#fff" d="M4.16.496h11.524a1.398 1.399 0 0 1 1.401 1.403V14.07c0 .777-.745 1.237-1.401 1.652L10.79 19.08c-.563.387-1.123.385-1.787 0L4.16 15.722c-.637-.443-1.401-.876-1.401-1.653V1.898A1.398 1.399 0 0 1 4.16.495Z"/>
+              </svg>
+            </button> 
+          </td>
 
-      <button id="button_left" onmousedown='buttonPressed("left")' onmouseup='buttonPressed("stop");' ontouchstart='buttonPressed("left")' ontouchend='buttonPressed("stop");'>
-        <svg class="svg-icon" width="75" height="75" viewBox="0 0 19.844 19.844" aria-hidden="true" transform="rotate(270)">
-          <path style="fill:#fff" d="M4.16.496h11.524a1.398 1.399 0 0 1 1.401 1.403V14.07c0 .777-.745 1.237-1.401 1.652L10.79 19.08c-.563.387-1.123.385-1.787 0L4.16 15.722c-.637-.443-1.401-.876-1.401-1.653V1.898A1.398 1.399 0 0 1 4.16.495Z"/>
-        </svg>
-      </button>     
+          <td></td> <!--Cell 3-->
+        </tr>
+
+        <tr>
+          <td> <!--Cell 4-->
+            <button id="button_left" onmousedown='buttonPressed("left")' onmouseup='buttonPressed("stop");' ontouchstart='buttonPressed("left")' ontouchend='buttonPressed("stop");'>
+              <svg class="svg-icon" width="75" height="75" viewBox="0 0 19.844 19.844" aria-hidden="true" transform="rotate(270)">
+                <path style="fill:#fff" d="M4.16.496h11.524a1.398 1.399 0 0 1 1.401 1.403V14.07c0 .777-.745 1.237-1.401 1.652L10.79 19.08c-.563.387-1.123.385-1.787 0L4.16 15.722c-.637-.443-1.401-.876-1.401-1.653V1.898A1.398 1.399 0 0 1 4.16.495Z"/>
+              </svg>
+            </button>  
+          </td>
+          
+          <td></td> <!--Cell 5-->
+          
+          <td> <!--Cell 6-->
+            <button id="button_right" onmousedown='buttonPressed("right")' onmouseup='buttonPressed("stop");' ontouchstart='buttonPressed("right")' ontouchend='buttonPressed("stop");'>
+              <svg class="svg-icon" width="75" height="75" viewBox="0 0 19.844 19.844" aria-hidden="true" transform="rotate(90)">
+                <path style="fill:#fff" d="M4.16.496h11.524a1.398 1.399 0 0 1 1.401 1.403V14.07c0 .777-.745 1.237-1.401 1.652L10.79 19.08c-.563.387-1.123.385-1.787 0L4.16 15.722c-.637-.443-1.401-.876-1.401-1.653V1.898A1.398 1.399 0 0 1 4.16.495Z"/>
+              </svg>
+            </button>
+          </td>
+
+        </tr>
+
+        <tr>
+          <td></td> <!--Cell 7-->
+
+          <td> <!--Cell 8-->
+            <button id="button_down" onmousedown='buttonPressed("down")' onmouseup='buttonPressed("stop");' ontouchstart='buttonPressed("down")' ontouchend='buttonPressed("stop");'>
+              <svg class="svg-icon" width="75" height="75" viewBox="0 0 19.844 19.844" aria-hidden="true" transform="rotate(180)">
+                <path style="fill:#fff" d="M4.16.496h11.524a1.398 1.399 0 0 1 1.401 1.403V14.07c0 .777-.745 1.237-1.401 1.652L10.79 19.08c-.563.387-1.123.385-1.787 0L4.16 15.722c-.637-.443-1.401-.876-1.401-1.653V1.898A1.398 1.399 0 0 1 4.16.495Z"/>
+              </svg>
+            </button>
+          </td>
+
+          <td></td> <!--Cell 9-->
+        </tr>
+      </table>
+
+      <table id="Buttons">
+
+        <tr>
+          <td> <!--Cell 1-->
+            <svg width="75" height="75" viewBox="0 0 19.844 19.844" xml:space="preserve" xmlns="http://www.w3.org/2000/svg">
+              <g transform="translate(-136.293 -79.904)"><circle style="fill:#fff;stroke:none;stroke-width:1.32292;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:5;stroke-dasharray:none" cx="146.214" cy="89.826" r="9.922"/>
+              <text xml:space="preserve" style="font-weight:700;font-size:17.6389px;line-height:17.8572px;font-family:&quot;Futura Md BT&quot;;-inkscape-font-specification:&quot;Futura Md BT Bold&quot;;text-align:center;text-decoration-color:#000;text-anchor:middle;white-space:pre;fill:#000;stroke:none;stroke-width:1.32292;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:5;stroke-dasharray:none" x="147.274" y="96.07"><tspan style="font-size:17.6389px;line-height:17.8572px;fill:#000;stroke-width:1.32292" x="147.274" y="96.07">1</tspan></text></g>
+            </svg>
+          </td>
+          
+          <td> <!--Cell 2-->
+            <svg width="75" height="75" viewBox="0 0 19.844 19.844" xml:space="preserve" xmlns="http://www.w3.org/2000/svg"><g transform="translate(-158.501 -79.904)">
+              <circle style="fill:#fff;stroke:none;stroke-width:1.32292;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:5;stroke-dasharray:none" cx="168.423" cy="89.826" r="9.922"/>
+              <text xml:space="preserve" style="font-weight:700;font-size:17.6389px;line-height:17.8572px;font-family:&quot;Futura Md BT&quot;;-inkscape-font-specification:&quot;Futura Md BT Bold&quot;;text-align:center;text-decoration-color:#000;text-anchor:middle;white-space:pre;fill:#000;stroke:none;stroke-width:1.32292;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:5;stroke-dasharray:none" x="168.725" y="96.204"><tspan style="font-size:17.6389px;line-height:17.8572px;fill:#000;stroke-width:1.32292" x="168.725" y="96.204">2</tspan></text></g>
+            </svg>
+          </td>
+          
+          <td> <!--Cell 3-->
+            <svg width="75" height="75" viewBox="0 0 19.844 19.844" xml:space="preserve" xmlns="http://www.w3.org/2000/svg"><g transform="translate(-180.71 -79.904)">
+              <circle style="fill:#fff;stroke:none;stroke-width:1.32292;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:5;stroke-dasharray:none" cx="190.632" cy="89.826" r="9.922"/>
+              <text xml:space="preserve" style="font-weight:700;font-size:17.6389px;line-height:17.8572px;font-family:&quot;Futura Md BT&quot;;-inkscape-font-specification:&quot;Futura Md BT Bold&quot;;text-align:center;text-decoration-color:#000;text-anchor:middle;white-space:pre;fill:#000;stroke:none;stroke-width:1.32292;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:5;stroke-dasharray:none" x="190.675" y="96.027"><tspan style="font-size:17.6389px;line-height:17.8572px;fill:#000;stroke-width:1.32292" x="190.675" y="96.027">3</tspan></text></g>
+            </svg>
+          </td>
+
+          <td> <!--Cell 4-->
+            <svg width="75" height="75" viewBox="0 0 19.844 19.844" xml:space="preserve" xmlns="http://www.w3.org/2000/svg"><g transform="translate(-202.92 -79.904)">
+              <circle style="fill:#fff;stroke:none;stroke-width:1.32292;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:5;stroke-dasharray:none" cx="212.841" cy="89.826" r="9.922"/>
+              <text xml:space="preserve" style="font-weight:700;font-size:17.6389px;line-height:17.8572px;font-family:&quot;Futura Md BT&quot;;-inkscape-font-specification:&quot;Futura Md BT Bold&quot;;text-align:center;text-decoration-color:#000;text-anchor:middle;white-space:pre;fill:#000;stroke:none;stroke-width:1.32292;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:5;stroke-dasharray:none" x="212.876" y="96.096"><tspan style="font-size:17.6389px;line-height:17.8572px;fill:#000;stroke-width:1.32292" x="212.876" y="96.096">4</tspan></text></g>
+            </svg>
+          </td>
+
+        </tr>
+
+        
+      </table>
 
     <!-- SLIDER1 -->
-    <div class="slider_label1 layout">SLIDER1</div>
+    <div class="slider_label1 layout">S1</div>
     <input id="slider1" class="layout" type="range" name="points" min="0" max="180" value="0" step="5" oninput='sendUART("z"+this.value);'>
     <!-- SLIDER2 -->
-    <div class="slider_label2 layout ">SLIDER2</div>
+    <div class="slider_label2 layout ">S2</div>
     <input id="slider2" class="layout" type="range" name="points" min="0" max="180" value="0" step="5" oninput='sendUART("x"+this.value);'>
     <!-- SLIDER3 -->
-    <div class="slider_label3 layout">SLIDER3</div>
+    <div class="slider_label3 layout">S3</div>
     <input id="slider3" class="layout" type="range" name="points" min="0" max="180" value="0" step="5" oninput='sendUART("c"+this.value);'>
     <!-- SLIDER4 -->
-    <div class="slider_label4 layout ">SLIDER4</div>
+    <div class="slider_label4 layout ">S4</div>
     <input id="slider4" class="layout" type="range" name="points" min="0" max="180" value="0" step="5" oninput='sendUART("v"+this.value);'>
-      
     
     </div>
 
@@ -107,7 +168,4 @@
 <script type="text/javascript" src="js_ble/microbit_uart_ble.js"></script>
 <script type="text/javascript" src="js_ble/functions.js"></script>
 
-<script type="text/javascript">
-
-
-</script>
+<script type="text/javascript"></script>
