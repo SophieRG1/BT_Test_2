@@ -66,23 +66,27 @@ button {
 
 
 #controls {
-  display: block;
+  position: absolute;
+  /* top: 1%; */
+  /* right: 8%; */
+  /* display: block; */
   /* no usar
   position: relative;
   top:25px;
   right:45px;
 z-index: 5001;
 */
-background: transparent;
-border: solid 10px;
-color: rebeccapurple;
-width: 100%;
-height: 90%;
-padding: 1.5em;
-box-sizing: border-box;
-transform: translate(0px, 0px);
-transition: all .2s ease-in-out;
-
+  /* background: transparent; */
+  border: solid 10px;
+  color: rebeccapurple;
+  width: 100%;
+  height: 100%;
+  /* padding: 38px 10px 10px 10px; */
+  box-sizing: border-box;
+  transform: translate(0px, 0px);
+  /* transition: all .2s ease-in-out; */
+  /* text-align: center; */
+  /* margin: 0px; */
 }
 
 #controls button {
@@ -98,20 +102,9 @@ transition: all .2s ease-in-out;
 }
 
 
-#controls table tr td button:active, #controls button:active {
+#controls button:active, #controls button:active {
   transform:scale(1.1, 1.1);
   transition: all .1s ease-in-out;
-}
-
-#controls table {
-  text-align: center;
-  width: 100%;
-  display: block;
-  margin: 0px auto;
-}
-
-#controls table tbody {
-  display: initial;
 }
 
 
@@ -120,7 +113,7 @@ transition: all .2s ease-in-out;
   top:15px;
   right:15px;
   z-index: 5002;
-
+  scale: .75;
 }
 
 #PairButton button {
@@ -171,11 +164,6 @@ transition: all .2s ease-in-out;
 }
 
 
-.tg {
-  width: 40%;
-}
-
-
 #hacedores_logo {
 position: absolute;
 bottom: 10px;
@@ -185,65 +173,175 @@ z-index: 1000;
 }
 
 .slider_label1 {
-  position: relative;
-  top: 0px;
-  left: 50%;
-  color:  #fff;
+  position: absolute;
+  margin: -2vh 0vw;
+  top: 30%;
+  right: 46%;
+  color: #fff;
   font-weight: 650;
   font-size: 1.5em;
 }
 .slider_label2 {
-  position: relative;
-  top: 0px;
-  left: 50%;
-  color:  #fff;
+  position: absolute;
+  margin: -2vh 0vw; 
+  top: 40%;
+  right: 46%;
+  color: #fff;
   font-weight: 650;
   font-size: 1.5em;
 }
 .slider_label3 {
-  position: relative;
-  top: 0px;
-  left: 50%;
-  color:  #fff;
+  position: absolute;
+  margin: -2vh 0vw; 
+  top: 50%;
+  right: 46%;
+  color: #fff;
   font-weight: 650;
   font-size: 1.5em;
 }
 .slider_label4 {
-  position: relative;
-  top: 0px;
-  left: 50%;
-  color:  #fff;
+  position: absolute;
+  margin: -2vh 0vw; 
+  top: 60%;
+  right: 46%;
+  color: #fff;
   font-weight: 650;
   font-size: 1.5em;
 }
 
 
+
 #circle {
-  position: relative;
-  bottom: 0px;
-  left:0px;
+  position: absolute;
+  top: 8%;
+  right: 58%;
  }
 
+#Pad {
+  position: relative;
+  top: 15%;
+  left: 4%;
+  scale: .8;
+  margin: 0% 0% 0% 4%;
+  }
+
+#Buttons {
+  scale: .7;
+  position: absolute;
+  top: 64%;
+  right: 0%;
+  }
+/*
 #button_up {
   position: absolute;
-  top:0px;
-  left:100px;
+  top: 8%;
+  right: 64%;
   }
 
 #button_right {
   position: absolute;
-  top:75px;
-  left:175px;
+  top: 33%;
+  right: 54%;
   }
 
 #button_down {
   position: absolute;
-  top:150px;
-  left:100px;
+  top: 58%;
+  right: 64%;
   }
 
 #button_left {
   position: absolute;
-  top:75px;
-  left:25px;
+  top: 33%;
+  right: 74%;
   }
+*/
+#L1 {
+  position: absolute;
+  top:25px;
+  left:150px;
+  }
+
+#L1 {
+  position: absolute;
+  top:25px;
+  left:250px;
+  }
+
+
+@media screen and (orientation:portrait) {
+
+  #controls {
+
+.slider_label1 {
+  position: absolute;
+  top: 40%;
+  left: 7%;
+  color: #fff;
+  font-weight: 650;
+  font-size: 1.5em;
+}
+
+.slider_label2 {
+  position: absolute;
+  /* margin: 3vh; */
+  top: 48%;
+  left: 7%;
+  color: #fff;
+  font-weight: 650;
+  font-size: 1.5em;
+}
+.slider_label3 {
+  position: absolute;
+  /* margin: 3vh; */
+  top: 56.5%;
+  left: 7%;
+  color: #fff;
+  font-weight: 650;
+  font-size: 1.5em;
+}
+.slider_label4 {
+  position: absolute;
+  /* margin: 3vh; */
+  top: 63.5%;
+  left: 7%;
+  color: #fff;
+  font-weight: 650;
+  font-size: 1.5em;
+}
+#slider1 {
+  position: absolute;
+  top: 42.5%;
+  left: 20%;
+  width: 70%;
+}
+#slider2 {
+  position: absolute;
+  top: 50%;
+  left: 20%;
+  width: 70%;
+}
+#slider3 {
+  position: absolute;
+  top: 57.5%;
+  left: 20%;
+  width: 70%;
+}
+#slider4 {
+  position: absolute;
+  top: 65%;
+  left: 20%;
+  width: 70%;
+}
+
+  }
+
+  
+.layout:not(:nth-child(3)) {
+ 
+
+}
+
+
+
+}
