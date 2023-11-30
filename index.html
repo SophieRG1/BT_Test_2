@@ -18,154 +18,203 @@
   <meta name="format-detection" content="telephone=no" />
   <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1" />
 
-  <title>Robot Control - BBC Micro:Bit</title>
+  <title>LOFI Control - BBC Micro:Bit</title>
 
 
 
- <link rel="manifest" href="manifest.json">
- <link rel="stylesheet" type="text/css" href="css/slider.css">
- <link rel="stylesheet" type="text/css" href="css/style.css">
+<link rel="manifest" href="manifest.json">
+  <link rel="stylesheet" type="text/css" href="css/slider.css">
+  <link rel="stylesheet" type="text/css" href="css/style.css">
+
 
 
 </head>
 
 <body oncontextmenu="return false;">
- 
+
+
 
   <div id="container">
 
 
-    <!-- PairButton -->
-    <div id="PairButton"> 
-      <button id="bluetooth" onclick="bluetooth_connected()">
-        <!-- Bluetooth logo SVG -->
-        <svg fill="#fff" width="75" height="75">
-            <path style="fill:#b3b3b3;stroke:none;stroke-width:2.07874;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:5" d="M75 37.5A37.5 37.5 0 0 1 37.5 75 37.5 37.5 0 0 1 0 37.5a37.5 37.5 0 0 1 75 0z"/>
-            <path style="fill:#fff;stroke-width:3.77953" d="M39.294 64.591c-.664-.167-1.655-.744-2.077-1.211-.213-.236-.54-.751-.727-1.144l-.338-.715-.03-8.929c-.017-4.911-.053-8.93-.079-8.93-.027 0-3.146 2.063-6.93 4.583-6.04 4.021-6.965 4.603-7.57 4.757-.828.211-1.454.146-2.247-.234-1.459-.699-2.123-2.4-1.543-3.95.433-1.155-.094-.758 9.908-7.467l5.75-3.857-7.315-4.904c-4.024-2.698-7.473-5.08-7.665-5.295-.805-.901-1.09-2.189-.726-3.283.267-.804 1.177-1.708 1.978-1.963.727-.232 1.448-.235 2.107-.01.292.1 3.466 2.139 7.384 4.744l6.871 4.57.054-8.926c.05-8.159.07-8.966.242-9.396.835-2.086 3.445-3.26 5.423-2.438.712.296 12.566 8.15 13.239 8.773 3.193 2.952 3.284 8.201.195 11.336-.541.55-1.748 1.399-5.306 3.733-3.465 2.273-4.574 3.051-4.478 3.143.07.068 2.115 1.426 4.546 3.021s4.7 3.159 5.043 3.476c3.192 2.955 3.282 8.203.195 11.337-.555.563-1.978 1.551-6.815 4.732-3.362 2.211-6.34 4.121-6.618 4.244-.582.258-1.838.36-2.47.2zm7.74-11.485c3.501-2.396 3.846-2.694 3.847-3.325 0-.685-.213-.864-4.185-3.51a779.893 779.893 0 0 0-3.988-2.648c-.107-.065-.135 1.214-.135 6.248v6.328l.513-.37c.282-.204 2.059-1.429 3.95-2.723zm3.682-27.308c.37-.782.12-1.306-.997-2.087a920.11 920.11 0 0 0-6.85-4.698l-.297-.192v12.652l3.988-2.662c3.157-2.108 4.024-2.737 4.155-3.013z"/>
+
+    <div id="menu_left">
+      <button id="robotShow" onclick="connectButtonPressed()">
+        <svg width="100" height="100" viewBox="0 0 26.458 26.458" xml:space="preserve" xmlns="http://www.w3.org/2000/svg">
+          <g transform="translate(-23.016 -56.828) scale(1.02123)" style="stroke-width:.979213">
+            <circle style="fill:#b3b3b3;stroke:none;stroke-width:.538566;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:5" cx="35.492" cy="68.601" r="12.954"/>
+            <path style="fill:#fff;stroke-width:.979213" d="M36.112 77.96c-.23-.058-.572-.257-.717-.419a1.975 1.975 0 0 1-.251-.395l-.117-.247-.01-3.084c-.006-1.697-.019-3.085-.028-3.085-.01 0-1.086.713-2.394 1.583-2.086 1.39-2.406 1.59-2.615 1.644a1.03 1.03 0 0 1-.776-.081 1.08 1.08 0 0 1-.533-1.364c.15-.4-.033-.263 3.422-2.58L34.08 68.6l-2.527-1.694c-1.39-.932-2.582-1.755-2.648-1.83a1.177 1.177 0 0 1-.251-1.134c.092-.277.407-.59.683-.677.251-.08.5-.082.728-.004.101.035 1.198.739 2.551 1.64l2.373 1.578.019-3.084c.017-2.818.024-3.097.084-3.245.288-.721 1.19-1.126 1.873-.843.246.103 4.34 2.816 4.573 3.03 1.103 1.02 1.134 2.834.068 3.917-.188.19-.604.483-1.833 1.29-1.198.785-1.58 1.053-1.547 1.085.024.023.73.493 1.57 1.044.84.55 1.624 1.091 1.743 1.2 1.102 1.021 1.133 2.834.067 3.917-.192.194-.683.536-2.354 1.635-1.162.764-2.19 1.423-2.286 1.466-.202.089-.635.124-.854.069zm2.674-3.968c1.21-.827 1.328-.93 1.329-1.148 0-.237-.074-.299-1.446-1.213-.732-.488-1.352-.9-1.378-.915-.037-.022-.046.42-.046 2.159v2.186l.177-.128c.097-.07.71-.494 1.364-.94zm1.271-9.433c.129-.27.042-.451-.344-.721a328.848 328.848 0 0 0-2.366-1.623l-.102-.066v4.37l1.377-.92c1.091-.728 1.39-.945 1.435-1.04z"/>
+          </g>
         </svg>
-        
-       </button>
+
+
+      </button>
     </div>
+
 
     <div id="controls" >
-
-      <table id="Pad"> <!--Square numeric pad alike-->
-
-        <tr>
-          <td></td> <!--Cell 1-->
-
-          <td> <!--Cell 2-->
-            <button id="button_up" onmousedown='buttonPressed("up")' onmouseup='buttonPressed("stop");' ontouchstart='buttonPressed("up")' ontouchend='buttonPressed("stop");'>
-              <svg class="svg-icon" width="75" height="75" viewBox="0 0 19.844 19.844" aria-hidden="true">
-                <path style="fill:#fff" d="M4.16.496h11.524a1.398 1.399 0 0 1 1.401 1.403V14.07c0 .777-.745 1.237-1.401 1.652L10.79 19.08c-.563.387-1.123.385-1.787 0L4.16 15.722c-.637-.443-1.401-.876-1.401-1.653V1.898A1.398 1.399 0 0 1 4.16.495Z"/>
-              </svg>
-            </button> 
-          </td>
-
-          <td></td> <!--Cell 3-->
-        </tr>
-
-        <tr>
-          <td> <!--Cell 4-->
-            <button id="button_left" onmousedown='buttonPressed("left")' onmouseup='buttonPressed("stop");' ontouchstart='buttonPressed("left")' ontouchend='buttonPressed("stop");'>
-              <svg class="svg-icon" width="75" height="75" viewBox="0 0 19.844 19.844" aria-hidden="true" transform="rotate(270)">
-                <path style="fill:#fff" d="M4.16.496h11.524a1.398 1.399 0 0 1 1.401 1.403V14.07c0 .777-.745 1.237-1.401 1.652L10.79 19.08c-.563.387-1.123.385-1.787 0L4.16 15.722c-.637-.443-1.401-.876-1.401-1.653V1.898A1.398 1.399 0 0 1 4.16.495Z"/>
-              </svg>
-            </button>  
-          </td>
-          
-          <td></td> <!--Cell 5-->
-          
-          <td> <!--Cell 6-->
-            <button id="button_right" onmousedown='buttonPressed("right")' onmouseup='buttonPressed("stop");' ontouchstart='buttonPressed("right")' ontouchend='buttonPressed("stop");'>
-              <svg class="svg-icon" width="75" height="75" viewBox="0 0 19.844 19.844" aria-hidden="true" transform="rotate(90)">
-                <path style="fill:#fff" d="M4.16.496h11.524a1.398 1.399 0 0 1 1.401 1.403V14.07c0 .777-.745 1.237-1.401 1.652L10.79 19.08c-.563.387-1.123.385-1.787 0L4.16 15.722c-.637-.443-1.401-.876-1.401-1.653V1.898A1.398 1.399 0 0 1 4.16.495Z"/>
-              </svg>
-            </button>
-          </td>
-
-        </tr>
-
-        <tr>
-          <td></td> <!--Cell 7-->
-
-          <td> <!--Cell 8-->
-            <button id="button_down" onmousedown='buttonPressed("down")' onmouseup='buttonPressed("stop");' ontouchstart='buttonPressed("down")' ontouchend='buttonPressed("stop");'>
-              <svg class="svg-icon" width="75" height="75" viewBox="0 0 19.844 19.844" aria-hidden="true" transform="rotate(180)">
-                <path style="fill:#fff" d="M4.16.496h11.524a1.398 1.399 0 0 1 1.401 1.403V14.07c0 .777-.745 1.237-1.401 1.652L10.79 19.08c-.563.387-1.123.385-1.787 0L4.16 15.722c-.637-.443-1.401-.876-1.401-1.653V1.898A1.398 1.399 0 0 1 4.16.495Z"/>
-              </svg>
-            </button>
-          </td>
-
-          <td></td> <!--Cell 9-->
-        </tr>
-      </table>
-
-      <table id="Buttons">
-
-        <tr>
-          <td> <!--Cell 1-->
-            <svg width="75" height="75" viewBox="0 0 19.844 19.844" xml:space="preserve" xmlns="http://www.w3.org/2000/svg">
-              <g transform="translate(-136.293 -79.904)"><circle style="fill:#fff;stroke:none;stroke-width:1.32292;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:5;stroke-dasharray:none" cx="146.214" cy="89.826" r="9.922"/>
-              <text xml:space="preserve" style="font-weight:700;font-size:17.6389px;line-height:17.8572px;font-family:&quot;Futura Md BT&quot;;-inkscape-font-specification:&quot;Futura Md BT Bold&quot;;text-align:center;text-decoration-color:#000;text-anchor:middle;white-space:pre;fill:#000;stroke:none;stroke-width:1.32292;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:5;stroke-dasharray:none" x="147.274" y="96.07"><tspan style="font-size:17.6389px;line-height:17.8572px;fill:#000;stroke-width:1.32292" x="147.274" y="96.07">1</tspan></text></g>
-            </svg>
-          </td>
-          
-          <td> <!--Cell 2-->
-            <svg width="75" height="75" viewBox="0 0 19.844 19.844" xml:space="preserve" xmlns="http://www.w3.org/2000/svg"><g transform="translate(-158.501 -79.904)">
-              <circle style="fill:#fff;stroke:none;stroke-width:1.32292;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:5;stroke-dasharray:none" cx="168.423" cy="89.826" r="9.922"/>
-              <text xml:space="preserve" style="font-weight:700;font-size:17.6389px;line-height:17.8572px;font-family:&quot;Futura Md BT&quot;;-inkscape-font-specification:&quot;Futura Md BT Bold&quot;;text-align:center;text-decoration-color:#000;text-anchor:middle;white-space:pre;fill:#000;stroke:none;stroke-width:1.32292;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:5;stroke-dasharray:none" x="168.725" y="96.204"><tspan style="font-size:17.6389px;line-height:17.8572px;fill:#000;stroke-width:1.32292" x="168.725" y="96.204">2</tspan></text></g>
-            </svg>
-          </td>
-          
-          <td> <!--Cell 3-->
-            <svg width="75" height="75" viewBox="0 0 19.844 19.844" xml:space="preserve" xmlns="http://www.w3.org/2000/svg"><g transform="translate(-180.71 -79.904)">
-              <circle style="fill:#fff;stroke:none;stroke-width:1.32292;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:5;stroke-dasharray:none" cx="190.632" cy="89.826" r="9.922"/>
-              <text xml:space="preserve" style="font-weight:700;font-size:17.6389px;line-height:17.8572px;font-family:&quot;Futura Md BT&quot;;-inkscape-font-specification:&quot;Futura Md BT Bold&quot;;text-align:center;text-decoration-color:#000;text-anchor:middle;white-space:pre;fill:#000;stroke:none;stroke-width:1.32292;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:5;stroke-dasharray:none" x="190.675" y="96.027"><tspan style="font-size:17.6389px;line-height:17.8572px;fill:#000;stroke-width:1.32292" x="190.675" y="96.027">3</tspan></text></g>
-            </svg>
-          </td>
-
-          <td> <!--Cell 4-->
-            <svg width="75" height="75" viewBox="0 0 19.844 19.844" xml:space="preserve" xmlns="http://www.w3.org/2000/svg"><g transform="translate(-202.92 -79.904)">
-              <circle style="fill:#fff;stroke:none;stroke-width:1.32292;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:5;stroke-dasharray:none" cx="212.841" cy="89.826" r="9.922"/>
-              <text xml:space="preserve" style="font-weight:700;font-size:17.6389px;line-height:17.8572px;font-family:&quot;Futura Md BT&quot;;-inkscape-font-specification:&quot;Futura Md BT Bold&quot;;text-align:center;text-decoration-color:#000;text-anchor:middle;white-space:pre;fill:#000;stroke:none;stroke-width:1.32292;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:5;stroke-dasharray:none" x="212.876" y="96.096"><tspan style="font-size:17.6389px;line-height:17.8572px;fill:#000;stroke-width:1.32292" x="212.876" y="96.096">4</tspan></text></g>
-            </svg>
-          </td>
-
-        </tr>
-
+      <div id="datos">
         
-      </table>
+        <div class="a"></div>
+        <div class="b"></div>
+        <div class="logo"></div>
+        
+        <div class="luz"></div>
+        <div class="temp"></div>
+        <div class="compass"></div>
+        <div class="sound"></div>
+        
+      </div>
+      <div class="slider_label1 controler">S1</div>
+      <input id="slider1" class="controler" type="range" name="points" min="0" max="180" value="0" oninput='sendUART("c"+this.value);'>
+      
+      <div class="slider_label2 controler ">S2</div>
+      <input id="slider2" class="controler" type="range" name="points" min="0" max="180" value="0" step="5" oninput='sendUART("x"+this.value);'><br/>
 
-    <!-- SLIDER1 -->
-    <div class="slider_label1 layout">S1</div>
-    <input id="slider1" class="layout" type="range" name="points" min="0" max="180" value="0" step="5" oninput='sendUART("z"+this.value);'>
-    <!-- SLIDER2 -->
-    <div class="slider_label2 layout ">S2</div>
-    <input id="slider2" class="layout" type="range" name="points" min="0" max="180" value="0" step="5" oninput='sendUART("x"+this.value);'>
-    <!-- SLIDER3 -->
-    <div class="slider_label3 layout">S3</div>
-    <input id="slider3" class="layout" type="range" name="points" min="0" max="180" value="0" step="5" oninput='sendUART("c"+this.value);'>
-    <!-- SLIDER4 -->
-    <div class="slider_label4 layout ">S4</div>
-    <input id="slider4" class="layout" type="range" name="points" min="0" max="180" value="0" step="5" oninput='sendUART("v"+this.value);'>
-    
+
+      <table class="tg controler">
+
+        <tr>
+          <td class="tg-yw4l"></td>
+          <td class="tg-yw4l"><button onmousedown='buttonPressed("up")' onmouseup='buttonPressed("stop");' ontouchstart='buttonPressed("up")' ontouchend='buttonPressed("stop");'>
+            <!-- SVG withouth width and height -->
+            <svg class="svg-icon"  viewBox="0 0 19.844 19.844">
+                <path style="fill:#fff" d="M4.16.496h11.524a1.398 1.399 0 0 1 1.401 1.403V14.07c0 .777-.745 1.237-1.401 1.652L10.79 19.08c-.563.387-1.123.385-1.787 0L4.16 15.722c-.637-.443-1.401-.876-1.401-1.653V1.898A1.398 1.399 0 0 1 4.16.495Z"/>
+              </svg>
+          </button></td>
+          <td class="tg-yw4l"></td>
+        </tr>
+        <tr>
+          <td class="tg-yw4l"><button onmousedown='buttonPressed("left")' onmouseup='buttonPressed("stop");' ontouchstart='buttonPressed("left");' ontouchend='buttonPressed("stop");'>
+            <svg class="svg-icon"  viewBox="0 0 19.844 19.844" transform="rotate(270)">
+                <path style="fill:#fff" d="M4.16.496h11.524a1.398 1.399 0 0 1 1.401 1.403V14.07c0 .777-.745 1.237-1.401 1.652L10.79 19.08c-.563.387-1.123.385-1.787 0L4.16 15.722c-.637-.443-1.401-.876-1.401-1.653V1.898A1.398 1.399 0 0 1 4.16.495Z"/>
+              </svg>
+          </button></td>
+          <td class="tg-yw4l">
+          </td>
+          <td class="tg-yw4l"><button onmousedown='buttonPressed("right")' onmouseup='buttonPressed("stop");' ontouchstart='buttonPressed("right");' ontouchend='buttonPressed("stop");'>
+            <svg class="svg-icon"  viewBox="0 0 19.844 19.844" transform="rotate(90)">
+                <path style="fill:#fff" d="M4.16.496h11.524a1.398 1.399 0 0 1 1.401 1.403V14.07c0 .777-.745 1.237-1.401 1.652L10.79 19.08c-.563.387-1.123.385-1.787 0L4.16 15.722c-.637-.443-1.401-.876-1.401-1.653V1.898A1.398 1.399 0 0 1 4.16.495Z"/>
+              </svg>
+          </button></td>
+        </tr>
+        <tr>
+          <td class="tg-yw4l"></td>
+          <td class="tg-yw4l"><button onmousedown='buttonPressed("down")' onmouseup='buttonPressed("stop");' ontouchstart='buttonPressed("down");' ontouchend='buttonPressed("stop");'>
+            <svg class="svg-icon"  viewBox="0 0 19.844 19.844" transform="rotate(180)">
+                <path style="fill:#fff" d="M4.16.496h11.524a1.398 1.399 0 0 1 1.401 1.403V14.07c0 .777-.745 1.237-1.401 1.652L10.79 19.08c-.563.387-1.123.385-1.787 0L4.16 15.722c-.637-.443-1.401-.876-1.401-1.653V1.898A1.398 1.399 0 0 1 4.16.495Z"/>
+              </svg>
+          </button></td>
+          <td class="tg-yw4l"></td>
+        </tr>
+        <tr>
+          <td>
+        </td>
+        </tr>
+      </table> <!-- CONTROLS -->
+
+      
+      
+
     </div>
 
-  </div>
 
 
-<!-- LOGO de hacedores-->
-<a id="hacedores_logo" href="https://www.hacedores.com/">
-  
+
+
+</div>
+
+<!--
+<a id="lofi_logo" href="https://cardboard.lofirobot.com">
+
+
+  <svg version="1.1" xmlns="http://www.w3.org/2000/svg"
+  	 viewBox="0 0 550 550" style="enable-background:new 0 0 550 550;" fill="#fff" >
+
+  <path class="st0" d="M205.5,146.3c-42.5,0-77,34.5-77,77s34.5,77,77,77s77-34.5,77-77S248.1,146.3,205.5,146.3L205.5,146.3z
+  	 M205.5,232.9c-5.3,0-9.6-4.3-9.6-9.6s4.3-9.6,9.6-9.6c5.3,0,9.6,4.3,9.6,9.6c0,0,0,0,0,0C215.1,228.6,210.9,232.9,205.5,232.9
+  	C205.5,232.9,205.5,232.9,205.5,232.9z"/>
+  <path class="st0" d="M421.9,216.8l-12.3-26.9c-1.6-4.2-1.6-8.8,0.2-12.9l11.9-24.2c1.7-3.5-0.1-6.4-4-6.4h-94.7
+  	c-3.9,0-7.1,3.2-7.1,7.1v139.7c0,3.9,3.2,7.1,7.1,7.2h40.2c3.9,0,7.1-3.2,7.1-7.2v-62.7c0-3.9,3.2-7.1,7.2-7.2h40.2
+  	C421.6,223.3,423.5,220.4,421.9,216.8z M349.3,192.6c-5.3,0-9.6-4.3-9.6-9.6c0-5.3,4.3-9.6,9.6-9.6c5.3,0,9.6,4.3,9.6,9.6
+  	c0,0,0,0,0,0C358.9,188.3,354.6,192.6,349.3,192.6L349.3,192.6z"/>
+  <path class="st0" d="M524.1,146.3h-62.7c-3.9,0-7.1,3.2-7.2,7.1v139.7c0,3.9,3.2,7.1,7.2,7.2h62.7c3.9,0,7.1-3.2,7.2-7.2V153.5
+  	C531.3,149.5,528.1,146.3,524.1,146.3z M492.8,273.1c-5.3,0-9.6-4.3-9.6-9.6s4.3-9.6,9.6-9.6c5.3,0,9.6,4.3,9.6,9.6c0,0,0,0,0,0
+  	C502.4,268.8,498.1,273.1,492.8,273.1z"/>
+  <path class="st0" d="M122.7,294.4l-100-146c-2.2-3.2-4-2.7-4,1.2v143.5c0,3.9,3.2,7.1,7.1,7.2h93.7
+  	C123.5,300.3,124.9,297.7,122.7,294.4z M60.1,273.1c-5.3,0-9.6-4.3-9.6-9.6c0-5.3,4.3-9.6,9.6-9.6c5.3,0,9.6,4.3,9.6,9.6l0,0
+  	C69.7,268.8,65.4,273.1,60.1,273.1C60.1,273.1,60.1,273.1,60.1,273.1L60.1,273.1z"/>
+  <path class="st0" d="M45.7,393.1H31.1c-0.8,0-1.4-0.6-1.4-1.4v-39c0-0.8-0.6-1.4-1.4-1.4h-8.1c-0.8,0-1.4,0.6-1.4,1.4v48.3
+  	c0,0.8,0.6,1.4,1.4,1.4h25.5c0.8,0,1.4-0.6,1.4-1.4v-6.4C47.1,393.7,46.5,393.1,45.7,393.1z"/>
+  <path class="st0" d="M106.5,357.9c-10.7-10.4-27.8-10.4-38.5,0c-5.2,4.9-8.1,11.8-8,19c-0.2,8.1,3.5,15.8,9.9,20.7
+  	c10.9,8.8,26.7,8.1,36.7-1.7c5.2-4.9,8.1-11.8,7.9-18.9C114.7,369.8,111.8,362.9,106.5,357.9z M98.8,389.1
+  	c-2.9,3.3-7.1,5.1-11.5,4.9c-4.5,0.2-8.8-1.7-11.7-5c-5.9-7-5.8-17.3,0.2-24.3c6-6.4,16-6.7,22.3-0.7c0.2,0.2,0.5,0.5,0.7,0.7
+  	C104.8,371.8,104.8,382.1,98.8,389.1L98.8,389.1z"/>
+  <path class="st0" d="M157.7,351.3h-27.2c-0.8,0-1.4,0.6-1.4,1.4v48.2c0,0.8,0.6,1.4,1.4,1.4h8.1c0.8,0,1.4-0.6,1.4-1.4v-19.2
+  	c0-0.8,0.6-1.4,1.4-1.4h16.3c0.8,0,1.4-0.6,1.4-1.4v-6.4c0-0.8-0.6-1.4-1.4-1.4h-16.3c-0.8,0-1.4-0.6-1.4-1.4v-7.6
+  	c0-0.8,0.6-1.4,1.4-1.4h16.3c0.8,0,1.4-0.6,1.4-1.4v-6.4C159.1,351.9,158.5,351.3,157.7,351.3z"/>
+  <path class="st0" d="M189.9,351.3h-8.1c-0.8,0-1.4,0.6-1.4,1.4v48.2c0,0.8,0.6,1.4,1.4,1.4h8.1c0.8,0,1.4-0.6,1.4-1.4v-48.2
+  	C191.3,351.9,190.7,351.3,189.9,351.3z"/>
+  <path class="st0" d="M284.5,401.2l-13.4-22c3.2-0.4,6.1-1.9,8.2-4.4c2.1-2.5,3.3-5.7,3.2-9c0-9.7-6.2-14.5-18.6-14.5h-14.2
+  	c-0.8,0-1.4,0.6-1.4,1.4v48.2c0,0.8,0.6,1.4,1.4,1.4h8.1c0.8,0,1.4-0.6,1.4-1.4v-21c0-0.8,0.3-0.9,0.7-0.2l12,21.4
+  	c0.5,0.7,1.3,1.2,2.1,1.2h9.7C284.7,402.4,285,401.8,284.5,401.2z M268.9,372.1c-1.5,0.7-6.6,0.9-6.6,0.9c-0.8,0-1.8,0.1-2.2,0.1
+  	s-0.8-0.7-0.8-1.4V361c0-0.8,0.6-1.4,1.4-1.4h0.2c3.8,0,6.5,0.4,8,1.2c1.9,1,2.9,3,2.9,5.7C271.8,369.3,270.9,371.2,268.9,372.1z"/>
+  <path class="st0" d="M346.9,357.9c-10.7-10.4-27.8-10.4-38.5,0c-5.2,4.9-8.1,11.8-8,19c-0.2,8.1,3.5,15.8,9.9,20.7
+  	c10.9,8.8,26.7,8.1,36.7-1.7c5.2-4.9,8.1-11.8,7.9-18.9C355,369.8,352.1,362.9,346.9,357.9z M339.1,389.1c-2.9,3.3-7.1,5.1-11.5,4.9
+  	c-4.5,0.2-8.8-1.7-11.7-5c-5.9-7-5.8-17.3,0.2-24.3c6-6.4,16-6.7,22.3-0.7c0.2,0.2,0.5,0.5,0.7,0.7
+  	C345.1,371.8,345.1,382.1,339.1,389.1L339.1,389.1z"/>
+  <path class="st0" d="M396.8,375.5c7.1-1.2,10.7-4.9,10.7-10.9c0-4.9-2.1-8.5-6.2-10.8c-2.3-1.2-4.8-1.9-7.4-2.1
+  	c-2-0.2-7.9-0.3-7.9-0.3h-2.9h-6.7c-0.8,0-1.4,0.6-1.4,1.4v48.2c0,0.8,0.6,1.4,1.4,1.4h6.9c4.9,0,8.5-0.1,10.7-0.4
+  	c3-0.3,5.9-1.2,8.6-2.5c4.5-2.4,6.8-6.3,6.8-11.7C409.3,380.8,405.2,376.7,396.8,375.5z M385.9,361.1c0-0.8,0.6-1.4,1.4-1.4h1.2
+  	c3.1,0,5.4,0.4,6.8,1.3s2.1,2.4,2.1,4.7c0,2.3-0.8,3.9-2.3,4.8c-1.3,0.9-5.4,1.2-5.4,1.2c-0.8,0.1-2,0.1-2.6,0.1
+  	c-0.7-0.1-1.3-0.7-1.2-1.4L385.9,361.1z M390.2,393.9h-2.9c-0.8,0-1.4-0.6-1.4-1.4v-10.9c0-0.8,0.6-1.4,1.4-1.4h3
+  	c5.5,0,8.2,2.2,8.2,6.7C398.5,391.5,395.8,393.9,390.2,393.9L390.2,393.9z"/>
+  <path class="st0" d="M472.8,357.9c-10.7-10.4-27.8-10.4-38.5,0c-5.2,4.9-8.1,11.8-8,19c-0.2,8.1,3.5,15.8,9.9,20.7
+  	c10.9,8.8,26.7,8.1,36.7-1.7c5.2-4.9,8.1-11.8,7.9-18.9C481,369.8,478,362.9,472.8,357.9z M465.1,389.1c-2.9,3.3-7.1,5.1-11.5,4.9
+  	c-4.5,0.2-8.8-1.7-11.7-5c-5.9-7-5.8-17.3,0.2-24.3c6-6.4,16-6.7,22.3-0.7c0.2,0.2,0.5,0.5,0.7,0.7
+  	C471.1,371.8,471.1,382.1,465.1,389.1L465.1,389.1z"/>
+  <path class="st0" d="M529.8,351.3h-33.2c-0.8,0-1.4,0.6-1.4,1.4v6.4c0,0.8,0.6,1.4,1.4,1.4h9.7c0.8,0,1.4,0.6,1.4,1.4v39
+  	c0,0.8,0.6,1.4,1.4,1.4h8.1c0.8,0,1.4-0.6,1.4-1.4v-39c0-0.8,0.6-1.4,1.4-1.4h9.7c0.8,0,1.4-0.6,1.4-1.4v-6.4
+  	C531.2,351.9,530.6,351.3,529.8,351.3z"/>
+  </svg>
+
+
 </a>
+-->
+<!--
+<a id="info" href="https://cardboard.lofirobot.com/microbit-control-app-info/">
 
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><style type="text/css">
 
+    </style>
+    <path fill="#fff" d="M50 0C22.4 0 0 22.4 0 50c0 27.6 22.4 50 50 50s50-22.4 50-50C100 22.4 77.6 0 50 0zM53.9 81.1H40.6V67.7h13.3V81.1zM68.7 43.6c-0.8 1.8-1.8 3.4-3 4.7 -1.2 1.4-2.4 2.5-3.8 3.5 -1.4 1-2.7 1.8-3.9 2.6 -0.7 0.5-1.4 0.9-2.1 1.2 -0.7 0.3-1.2 0.8-1.6 1.3 -0.2 0.3-0.3 0.6-0.3 0.9 -0.1 0.3-0.1 0.6-0.2 1 -0.1 0.4-0.1 0.7 0 1.1H40.6v-2.4c0-2 0.3-3.7 1-5.2 0.7-1.5 1.6-2.8 2.6-4 1-1.1 2.2-2.1 3.4-3 1.2-0.8 2.3-1.6 3.4-2.2 1.1-0.7 2-1.3 2.7-1.8 0.7-0.5 1.3-1 1.7-1.4 0.4-0.5 0.7-0.9 0.9-1.3 0.2-0.4 0.3-0.8 0.3-1.3 0-1.4-0.5-2.6-1.5-3.6 -1-1-2.2-1.5-3.6-1.5 -1.6 0-3 0.5-4.1 1.5 -1.1 1-1.7 2.2-1.7 3.6H32.5c0-2.6 0.5-4.9 1.5-7.1 1-2.2 2.4-4.2 4.1-5.8 1.7-1.7 3.7-3 6-4 2.3-1 4.7-1.5 7.3-1.5h0.1c2.6 0 4.9 0.5 7.1 1.5 2.2 1 4.2 2.3 5.8 4 1.7 1.7 3 3.6 4 5.8 1 2.2 1.4 4.6 1.4 7.1C69.9 39.7 69.5 41.8 68.7 43.6z"></path>
+  </svg>
+</a>
+-->
 
 </body>
+
+
 
 
 <script type="text/javascript" src="js_ble/microbit_uart_ble.js"></script>
 <script type="text/javascript" src="js_ble/functions.js"></script>
 
-<script type="text/javascript"></script>
+<script type="text/javascript">
+
+if("serviceWorker" in navigator){
+    navigator.serviceWorker.register("service_worker.js").then(registration=>{
+      console.log("SW Registered!");
+    }).catch(error=>{
+      console.log("SW Registration Failed");
+    });
+}else{
+  console.log("Not supported");
+}
+</script>
+
+
+
+
+
+</html>
