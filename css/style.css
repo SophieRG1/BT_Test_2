@@ -202,10 +202,10 @@ button {
 }
 
 .datalogger {
-
   position: absolute;
   bottom: 10%;
-  left: 50%;
+  left: 40%;
+  transform: scale(.9);
   z-index: 5002;
 }
 
@@ -245,7 +245,3 @@ button {
   }
 
 }
-
-
-
-
